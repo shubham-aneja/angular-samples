@@ -8,3 +8,7 @@
 .taskCompleted .taskTitle{
   text-decoration: line-through;
 }
+
+.panel-body {
+  padding: 40px;
+}

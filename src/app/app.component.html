@@ -3,36 +3,36 @@
   <div class="panel-heading">
     Welcome to {{title}}!
   </div>
-</div>
-<div class="panel-body">
+  <div class="panel-body">
 
-  <div class="form-group row">
-    <label for="taskTitle" class="col-2 col-form-label">Enter new task</label>
-
-    <div class="col-10">
-      <input
-        (keyup.enter)='onKeyup($event.target.value)'
-        name="taskTitle"
-        class="form-control"
-        type="text"
-        id="example-text-input"
-        [(ngModel)]="taskTitle"
-        >
-    </div>
-  </div>
-
-
-  <ol *ngIf="taskList" class="list-group">
-    <li *ngFor="let task of taskList" class="list-group-item">
-      <div (click)="toggleCompletionStatus(task)" class="row" [class.taskCompleted]="task.isCompleted">
-        <div class="form-check col-sm-2">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" id="blankCheckbox" [(ngModel)]="task.isCompleted" value="option1" aria-label="...">
-          </label>
-        </div>
-        <div [innerHTML]="task.title" class="col-sm-10 taskTitle"></div>
+    <div class="form-group row">
+      <label for="taskTitle" class="col-2 col-form-label">Enter new task</label>
+		This line has been added to check jenkins connectivity ...!Haah
+      <div class="col-10">
+        <input
+          (keyup.enter)='onKeyup($event.target.value)'
+          name="taskTitle"
+          class="form-control"
+          type="text"
+          id="example-text-input"
+          [(ngModel)]="taskTitle"
+          >
       </div>
-    </li>
-  </ol>
+    </div>
 
+
+    <ol *ngIf="taskList" class="list-group">
+      <li *ngFor="let task of taskList" class="list-group-item">
+        <div (click)="toggleCompletionStatus(task)" class="row" [class.taskCompleted]="task.isCompleted">
+          <div class="form-check col-sm-2">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" id="blankCheckbox" [(ngModel)]="task.isCompleted" value="option1" aria-label="...">
+            </label>
+          </div>
+          <div [innerHTML]="task.title" class="col-sm-10 taskTitle"></div>
+        </div>
+      </li>
+    </ol>
+
+  </div>
 </div>
