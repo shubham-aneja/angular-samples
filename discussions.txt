@@ -1,0 +1,30 @@
+3 aug
+  Simple component with input and a text inside app component itself.:- Done
+  Add checkbox and complete style
+
+add task prototype, dont use any all the time
+angular routing
+filter
+data from service
+nested component
+nested component output event
+observables?
+
+
+
+
+To be done all the time
+  Doing
+    Bootstrap
+
+   Have to start
+    Use less/sess
+    link with Jenkins
+    link with AWS
+
+
+
+
+
+
+
