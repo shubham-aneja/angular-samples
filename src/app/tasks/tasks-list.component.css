@@ -1,0 +1,18 @@
+.list-group-item{
+  display: list-item
+}
+.form-check{
+  width: 50px;
+}
+
+.taskCompleted .taskTitle{
+  text-decoration: line-through;
+}
+
+.panel-body {
+  padding: 40px;
+}
+
+.taskTitle{
+  text-align: left;
+}

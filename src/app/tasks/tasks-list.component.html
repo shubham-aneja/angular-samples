@@ -1,0 +1,32 @@
+<div>
+
+  <div class="form-group row">
+    <label for="taskTitle" class="col-2 col-form-label">{{enterTaskTitle}}</label>
+    <div class="col-10">
+      <input
+        placeholder="Type here ..."
+        (keyup.enter)='onKeyup($event.target.value)'
+        name="taskTitle"
+        class="form-control"
+        type="text"
+        id="example-text-input"
+        [(ngModel)]="taskTitle"
+        >
+    </div>
+  </div>
+
+
+  <ol *ngIf="taskList" class="list-group">
+    <li *ngFor="let task of taskList" class="list-group-item">
+      <div (click)="toggleCompletionStatus(task)" class="row" [class.taskCompleted]="task.isCompleted">
+        <div class="form-check col-sm-2">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" id="blankCheckbox" [(ngModel)]="task.isCompleted" value="option1" aria-label="...">
+          </label>
+        </div>
+        <div [innerHTML]="task.title" class="col-sm-10 taskTitle"></div>
+      </div>
+    </li>
+  </ol>
+
+</div>

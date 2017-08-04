@@ -1,11 +1,17 @@
-3 aug
+3 Aug
   Simple component with input and a text inside app component itself.:- Done
-  Add checkbox and complete style
+  Add checkbox and complete style :- Done
 
-add task prototype, dont use any all the time
+4 Aug
+Components composition:- DONE
+@Input :- Done
+add task prototype, don't use "any" all the time
+
 angular routing
 filter
 data from service
+
+@Output
 nested component
 nested component output event
 observables?
