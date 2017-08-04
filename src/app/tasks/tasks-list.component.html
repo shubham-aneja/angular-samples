@@ -17,6 +17,7 @@
 
 
   <ol *ngIf="taskList" class="list-group">
+   <div *ngIf="!taskList.length">Please enter your first task</div>
     <li *ngFor="let task of taskList" class="list-group-item">
       <div (click)="toggleCompletionStatus(task)" class="row" [class.taskCompleted]="task.isCompleted">
         <div class="form-check col-sm-2">

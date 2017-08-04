@@ -5,16 +5,18 @@
 4 Aug
 Components composition:- DONE
 @Input :- Done
-add task prototype, don't use "any" all the time
+add task prototype, don't use "any" all the time :- Done
+data from service :- Done
+use init lifecycle hook :- Done
 
+observables?
+use other two lifecycle hooks
 angular routing
-filter
-data from service
+filter to filter tasks
 
 @Output
 nested component
 nested component output event
-observables?
 
 
 

@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core'
-//import {ITask} from './task'
+import {Component, Input, OnInit} from '@angular/core'
+import {TaskService} from './task.service'
 import {ITask} from './task'
 
 
@@ -9,10 +9,20 @@ import {ITask} from './task'
   templateUrl: './tasks-list.component.html',
   styleUrls: ['./tasks-list.component.css']
 })
-export class TasksListComponent {
+
+export class TasksListComponent implements OnInit {
   @Input() enterTaskTitle:string = 'Enter new tasksdf';
   taskTitle = '';
-  taskList:ITask[]=[];
+  taskList:ITask[] = [];
+
+
+  constructor(private _taskService:TaskService) {
+
+  }
+
+  ngOnInit() {
+    this.taskList = this._taskService.getTasks()
+  }
 
   onKeyup(value:string):void {
     value.trim()
