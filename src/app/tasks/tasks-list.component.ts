@@ -1,9 +1,7 @@
 import {Component, Input} from '@angular/core'
+//import {ITask} from './task'
+import {ITask} from './task'
 
-const comps = [
-  {title: 'Sample task', isCompleted: true},
-  {title: 'Sample task 2'}
-  ]
 
 @Component({
   selector: 'tasks-list',
@@ -12,22 +10,19 @@ const comps = [
   styleUrls: ['./tasks-list.component.css']
 })
 export class TasksListComponent {
-  @Input() enterTaskTitle:string='Enter new tasksdf';
+  @Input() enterTaskTitle:string = 'Enter new tasksdf';
   taskTitle = '';
-  taskList:any[] = [
-    {title: 'Sample task', isCompleted: true},
-    {title: 'Sample task 2'}
-  ];
+  taskList:ITask[]=[];
 
-  onKeyup(value):void {
+  onKeyup(value:string):void {
     value.trim()
     if (!value)return;
     //this.taskList.unshift(value)
-    this.taskList.push({title: value})
+    this.taskList.push({title: value, isCompleted: false})
     this.taskTitle = '';
   }
 
-  toggleCompletionStatus(task: any):void {
+  toggleCompletionStatus(task:ITask):void {
     task.isCompleted = !task.isCompleted;
   }
 }
