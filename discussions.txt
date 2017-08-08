@@ -27,13 +27,22 @@ observables? receive data using json file and http
 Pass props to a component that is under a route.
 
 
-Issues
-  Not able to add tasks in active tab.
-  Task inserted in completed tab should come as completed.
-  Search with a text ds, then insert a task named ds.
-    This wont be visible at the moment its been entered. But will get inserted
-      ISSUE:- re-rendering not working properly at that time.
+New objects all the time or push pop can also work?
+  Have the same issue while pushing in the same array and re-rendering wouldn't worked
 
+
+Issues
+  Todos
+    Mark status complete is tempering in actual object, should be done in a new object
+    Complete a task in active tab is still displaying task in the list
+    Task inserted in completed tab should come as completed.
+
+  RESOLVED
+    Not able to add tasks in active tab. :- DONE on 8/8
+      ISSUE :- New task was getting added on same reference
+
+    Search with a text ds, then insert a task named ds.:- DONE on 8/8
+      ISSUE :- New task was getting added on same reference
 
 To be done all the time
   Doing
