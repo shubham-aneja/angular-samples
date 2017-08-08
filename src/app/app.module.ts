@@ -7,13 +7,16 @@ import {TaskService} from './tasks/task.service'
 
 import { AppComponent } from './app.component';
 import {TasksListComponent} from './tasks/tasks-list.component'
+import {StarComponent} from './shared/star.component'
+
 import {FilterTasks} from './tasks/task-list.pipe'
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksListComponent,
-    FilterTasks
+    FilterTasks,
+    StarComponent
   ],
   imports: [
     BrowserModule,

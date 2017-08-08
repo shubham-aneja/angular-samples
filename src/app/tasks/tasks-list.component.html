@@ -1,6 +1,4 @@
 <div>
-  <div>selected task status :- {{status}}</div>
-  <div>Search text :- {{taskSearch}}</div>
   <div class='row'>
     <div class='col-md-3 col-md-push-9' *ngIf="taskList.length">
       <input
@@ -44,8 +42,8 @@
           </label>
         </div>
         <div [innerHTML]="task.title" class="col-sm-10 taskTitle"></div>
+        <div><star [priority]="task.priority"></star></div>
       </div>
     </li>
   </ol>
-
 </div>

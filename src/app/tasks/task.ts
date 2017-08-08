@@ -1,4 +1,5 @@
 export  interface ITask {
   title: string,
-  isCompleted: boolean
+  isCompleted: boolean,
+  priority: number
 }

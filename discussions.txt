@@ -9,11 +9,14 @@
   data from service :- Done
   use init lifecycle hook :- Done
 
-angular routing
-filter to filter tasks
-@Output
-nested component
-nested component output event
+5-7 Aug .. Home work
+
+8 Aug
+  angular routing :- Done
+  filter to filter tasks :- Done
+  @Output
+  nested component
+  nested component output event
 
 
 observables? receive data using json file and http

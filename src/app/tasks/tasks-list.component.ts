@@ -36,7 +36,7 @@ export class TasksListComponent implements OnInit {
     value.trim()
     if (!value)return;
     //this.taskList.unshift(value)
-    this.taskList.push({title: value, isCompleted: false})
+    this.taskList.push({title: value, isCompleted: false, priority: 1})
     this.taskTitle = '';
   }
 

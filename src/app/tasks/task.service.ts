@@ -10,9 +10,9 @@ import 'rxjs/add/observable/throw';
 const dummyUrl = 'https://www.google.com'
 
 const SAVED_TASKS = [
-  {title: 'saved task1', isCompleted: false},
-  {title: 'saved task2', isCompleted: true},
-  {title: 'saved task3', isCompleted: false},
+  {title: 'saved task1', isCompleted: false, priority: 2.5},
+  {title: 'saved task2', isCompleted: true, priority: 2.5},
+  {title: 'saved task3', isCompleted: false, priority: 2.5},
   //{title: 'saved task4'},/*todo this will give error, since it is now verifying with the interface definition */
 ]
 
