@@ -12,15 +12,18 @@
 5-7 Aug .. Home work
 
 8 Aug
-  angular routing :- Done
-  filter to filter tasks :- Done
-  @Output
-  nested component
-  nested component output event
+  angular routing             :- Done
+  filter to filter tasks        :- Done
+  nested component              :- DONE
+  nested component output event :- DONE
+  @Output                       :- DONE
+  use other two lifecycle hooks:- DONE
+    ngOnInit
+    ngOnChanges
+    ngOnDestroy
 
 
 observables? receive data using json file and http
-use other two lifecycle hooks
 Pass props to a component that is under a route.
 
 

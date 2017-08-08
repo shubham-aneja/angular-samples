@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core'
+import {Component, Input, Output, EventEmitter} from '@angular/core'
 
 @Component({
   moduleId: module.id,
@@ -10,6 +10,7 @@ import {Component, Input} from '@angular/core'
 export class StarComponent {
   starWidth:number = 50;
   @Input() priority:number;
+  @Output() onPriorityPress: EventEmitter<number> = new EventEmitter<number>();
 
   ngOnInit() {
    /*86 is the total width of 5 star component*/
@@ -21,8 +22,9 @@ export class StarComponent {
   //  console.log('ng change',this.starWidth)
   //}
 
-  onClick() {
-    console.log(' star component got clicked ...!')
+  onClick(e) {
+    //console.log(' star component got clicked ...!',e)
+    this.onPriorityPress.emit(this.priority)
   }
 
 }

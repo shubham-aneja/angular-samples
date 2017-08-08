@@ -43,4 +43,8 @@ export class TasksListComponent implements OnInit {
   toggleCompletionStatus(task:ITask):void {
     task.isCompleted = !task.isCompleted;
   }
+
+  onTaskPriorityPress(priority:number): void {
+    console.log(`Task clicked with priority ${priority} in parent/task-list component`)
+  }
 }
