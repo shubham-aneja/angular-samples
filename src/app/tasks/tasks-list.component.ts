@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core'
 import {TaskService} from './task.service'
 import {ITask} from './task'
-
+import {ActivatedRoute} from '@angular/router'
 
 @Component({
   selector: 'tasks-list',
@@ -11,17 +11,25 @@ import {ITask} from './task'
 })
 
 export class TasksListComponent implements OnInit {
-  @Input() enterTaskTitle:string = 'Enter new tasksdf';
+  @Input() enterTaskTitle:string = 'Enter new task';
   taskTitle = '';
   taskList:ITask[] = [];
+  status:string = 'all';
+  sub;
+  taskSearch:string = '';
 
-
-  constructor(private _taskService:TaskService) {
-
+  constructor(private _taskService:TaskService, private _route:ActivatedRoute) {
   }
 
   ngOnInit() {
     this.taskList = this._taskService.getTasks()
+    this.sub = this._route.params.subscribe(params => {
+      this.status = params.status
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe()
   }
 
   onKeyup(value:string):void {

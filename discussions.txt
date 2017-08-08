@@ -3,31 +3,39 @@
   Add checkbox and complete style :- Done
 
 4 Aug
-Components composition:- DONE
-@Input :- Done
-add task prototype, don't use "any" all the time :- Done
-data from service :- Done
-use init lifecycle hook :- Done
+  Components composition:- DONE
+  @Input :- Done
+  add task prototype, don't use "any" all the time :- Done
+  data from service :- Done
+  use init lifecycle hook :- Done
 
-observables?
-use other two lifecycle hooks
 angular routing
 filter to filter tasks
-
 @Output
 nested component
 nested component output event
 
 
+observables? receive data using json file and http
+use other two lifecycle hooks
+Pass props to a component that is under a route.
+
+
+Issues
+  Not able to add tasks in active tab.
+  Task inserted in completed tab should come as completed.
+  Search with a text ds, then insert a task named ds.
+    This wont be visible at the moment its been entered. But will get inserted
+      ISSUE:- re-rendering not working properly at that time.
 
 
 To be done all the time
   Doing
     Bootstrap
+    link with Jenkins:-
 
    Have to start
     Use less/sess
-    link with Jenkins
     link with AWS
 
 

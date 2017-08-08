@@ -19,9 +19,9 @@ const SAVED_TASKS = [
 @Injectable()
 export class TaskService {
 
-  constructor(private _http: Http) {
-
-  }
+  //constructor(private _http: Http) {
+  //
+  //}
 
   getTasks():ITask[] {
     return SAVED_TASKS

@@ -1,10 +1,27 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="panel panel-primary" style="text-align:center">
-  <div class="panel-heading">
-    Welcome to {{title}}!
+<div>
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li>
+        <a [routerLink]="['', 'all']">All</a>
+      </li>
+      <li>
+        <a [routerLink]="['', 'active']">Active</a>
+      </li>
+      <li>
+        <a  [routerLink]="['', 'completed']">Completed</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="panel panel-primary" style="text-align:center">
+    <div class="panel-heading">
+      Welcome to {{title}}!
+    </div>
+    <div class="panel-body">
+      <router-outlet></router-outlet>
+      <!--<tasks-list enterTaskTitle="Enter new todo"></tasks-list>-->
+    </div>
   </div>
 
-  <div class="panel-body">
-    <tasks-list enterTaskTitle="Enter new todo"></tasks-list>
-  </div>
 </div>
