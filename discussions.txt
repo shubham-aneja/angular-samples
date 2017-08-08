@@ -21,6 +21,9 @@
     ngOnInit
     ngOnChanges
     ngOnDestroy
+  Tasks should have id, index are conflicting..
+     since it get change when tabs get changed.:-DONE
+
 
 
 observables? receive data using json file and http
@@ -33,11 +36,11 @@ New objects all the time or push pop can also work?
 
 Issues
   Todos
-    Mark status complete is tempering in actual object, should be done in a new object
-    Complete a task in active tab is still displaying task in the list
-    Task inserted in completed tab should come as completed.
-    Tasks should have id, index are conflicting since it get change when tabs get changed.
   RESOLVED
+    Task inserted in completed tab should come as completed. :- DONE ON 8/8
+    Mark status complete is tempering in actual object, should be done in a new object :- DONE on 8/8
+      Complete a task in active tab is still displaying task in the list
+        USED UUID INSTEAD
     Not able to add tasks in active tab. :- DONE on 8/8
       ISSUE :- New task was getting added on same reference
 

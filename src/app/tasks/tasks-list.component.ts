@@ -36,9 +36,8 @@ export class TasksListComponent implements OnInit {
   onKeyup(value:string):void {
     value.trim()
     if (!value)return;
-    //this.taskList.unshift(value)
     this.taskList = [...this.taskList,
-      {id:uuid.v4(), title: value, isCompleted: false, priority: 1}
+      {id:uuid.v4(), title: value, isCompleted: this.status === 'completed', priority: 1}
     ]
     this.taskTitle = '';
   }
