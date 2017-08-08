@@ -36,7 +36,7 @@ Issues
     Mark status complete is tempering in actual object, should be done in a new object
     Complete a task in active tab is still displaying task in the list
     Task inserted in completed tab should come as completed.
-
+    Tasks should have id, index are conflicting since it get change when tabs get changed.
   RESOLVED
     Not able to add tasks in active tab. :- DONE on 8/8
       ISSUE :- New task was getting added on same reference

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core'
 import {TaskService} from './task.service'
 import {ITask} from './task'
 import {ActivatedRoute} from '@angular/router'
+import uuid from 'uuid'
 
 @Component({
   selector: 'tasks-list',
@@ -36,12 +37,24 @@ export class TasksListComponent implements OnInit {
     value.trim()
     if (!value)return;
     //this.taskList.unshift(value)
-    this.taskList = [...this.taskList,{title: value, isCompleted: false, priority: 1}]
+    this.taskList = [...this.taskList,
+      {id:uuid.v4(), title: value, isCompleted: false, priority: 1}
+    ]
     this.taskTitle = '';
   }
 
-  toggleCompletionStatus(task:ITask):void {
-    task.isCompleted = !task.isCompleted;
+  toggleCompletionStatus(task:ITask, index: number = 2):void {
+    this.taskList = this.taskList.map( (currentTask, currentIndex) => {
+      if(task.id=== currentTask.id){
+        return {
+          ...currentTask,
+          isCompleted: !currentTask.isCompleted
+        }
+      }else {
+        return currentTask
+      }
+    })
+
   }
 
   onTaskPriorityPress(priority:number): void {

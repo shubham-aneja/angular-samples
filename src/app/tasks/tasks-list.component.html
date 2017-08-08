@@ -34,8 +34,8 @@
 
   <ol *ngIf="taskList" class="list-group">
    <div *ngIf="!taskList.length">Please enter your first task</div>
-    <li *ngFor="let task of taskList | taskFilter:status:taskSearch;" class="list-group-item">
-      <div (click)="toggleCompletionStatus(task)" class="row" [class.taskCompleted]="task.isCompleted">
+    <li *ngFor="let task of taskList| taskFilter:status:taskSearch; let i = index " class="list-group-item">
+      <div (click)="toggleCompletionStatus(task, i)" class="row" [class.taskCompleted]="task.isCompleted">
         <div class="form-check col-sm-2">
           <label class="form-check-label">
             <input class="form-check-input" type="checkbox" id="blankCheckbox" [(ngModel)]="task.isCompleted" value="option1" aria-label="...">
