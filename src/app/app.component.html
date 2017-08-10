@@ -3,13 +3,13 @@
   <nav class="navbar navbar-default">
     <ul class="nav navbar-nav">
       <li>
-        <a [routerLink]="['', 'all']">All</a>
+        <a routerLinkActive="active" [routerLink]="['', 'all']">All</a>
       </li>
       <li>
-        <a [routerLink]="['', 'active']">Active</a>
+        <a routerLinkActive="active" [routerLink]="['', 'active']">Active</a>
       </li>
       <li>
-        <a  [routerLink]="['', 'completed']">Completed</a>
+        <a  routerLinkActive="active" [routerLink]="['', 'completed']">Completed</a>
       </li>
     </ul>
   </nav>
