@@ -3,13 +3,19 @@
   <nav class="navbar navbar-default">
     <ul class="nav navbar-nav">
       <li>
-        <a routerLinkActive="active" [routerLink]="['', 'all']">All</a>
+        <a routerLinkActive="active" [queryParams]="{navigationSource: 'Link'}" [routerLink]="['taskList', 'all']">All</a>
       </li>
       <li>
-        <a routerLinkActive="active" [routerLink]="['', 'active']">Active</a>
+        <a routerLinkActive="active" [queryParams]="{navigationSource: 'Link'}" [routerLink]="['taskList', 'active']">Active</a>
       </li>
       <li>
-        <a  routerLinkActive="active" [routerLink]="['', 'completed']">Completed</a>
+        <a routerLinkActive="active" [queryParams]="{navigationSource: 'Link'}" [routerLink]="['taskList', 'completed']">Completed</a>
+      </li>
+      <li>
+        <a
+          routerLinkActive="active"
+          [queryParams]="{creator: 'Shubham'}"
+          [routerLink]="['dummy']">Dummy component</a>
       </li>
     </ul>
   </nav>

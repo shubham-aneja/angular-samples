@@ -6,9 +6,11 @@ import {Http} from '@angular/http'
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers:[TaskService, Http]
+  providers:[TaskService]
 })
 
 export class AppComponent {
   title:string = 'Todo manager';
+
+
 }
