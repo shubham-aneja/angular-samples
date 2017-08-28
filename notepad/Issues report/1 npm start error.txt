@@ -1,0 +1,44 @@
+
+D:\shubham\angular2\Angular2-GettingStarted\APM - Start>npm start
+
+> product-management@1.0.0 start D:\shubham\angular2\Angular2-GettingStarted\APM - Start
+> tsc && concurrently "tsc -w" "lite-server"
+
+app/app.module.ts(6,70): error TS1002: Unterminated string literal.
+npm ERR! code ELIFECYCLE
+npm ERR! errno 2
+npm ERR! product-management@1.0.0 start: `tsc && concurrently "tsc -w" "lite-server" `
+npm ERR! Exit status 2
+npm ERR!
+npm ERR! Failed at the product-management@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\shubham.aneja\AppData\Roaming\npm-cache\_logs\2017-07-24T11_30_15_638Z-debug.log
+
+D:\shubham\angular2\Angular2-GettingStarted\APM - Start>cd ..
+
+D:\shubham\angular2\Angular2-GettingStarted>cd "APM - Start"
+
+D:\shubham\angular2\Angular2-GettingStarted\APM - Start>npm start
+
+> product-management@1.0.0 start D:\shubham\angular2\Angular2-GettingStarted\APM - Start
+> tsc && concurrently "tsc -w" "lite-server"
+
+app/app.module.ts(6,70): error TS1002: Unterminated string literal.
+npm ERR! code ELIFECYCLE
+npm ERR! errno 2
+npm ERR! product-management@1.0.0 start: `tsc && concurrently "tsc -w" "lite-server" `
+npm ERR! Exit status 2
+npm ERR!
+npm ERR! Failed at the product-management@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\shubham.aneja\AppData\Roaming\npm-cache\_logs\2017-07-24T11_34_48_085Z-debug.log
+
+
+
+
+
+

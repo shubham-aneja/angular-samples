@@ -1,0 +1,9 @@
+Shree Ganesh :-
+
+internationalization
+
+animation
+
+passing props to component that are being created in a parallel router-outlet
+  and also the props are getting updated over time.
+   so use observable instead.

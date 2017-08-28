@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="introductionHeader" datatype="html">
+        <source>Hello i18n!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\app.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">An introduction header for this sample</note>
+        <note priority="1" from="meaning">site header</note>
+      </trans-unit>
+      <trans-unit id="b96656b5f735ae86974e85136fa466d2850c889e" datatype="html">
+        <source>
+        Hello world
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\samples\template-syntax\template-syntax.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">An introduction header for this sample</note>
+        <note priority="1" from="meaning">User welcome</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

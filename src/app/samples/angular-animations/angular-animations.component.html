@@ -1,0 +1,93 @@
+<div>
+  <div class='row'>
+    <div class='col-md-12 text-left'>
+      <h1>{{title}}</h1>
+    </div>
+    <div class='col-md-12 '>
+      <ol>
+
+
+        <li>
+          <div class="row text-left">
+            <div class="col-md-12 "><h3>Basic example</h3></div>
+            <div class="col-md-12 ">
+              <div
+                class="row-item-container"
+                [@heroState]="heroState"
+                (click)="toggleState()"
+                >Toggle me
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row text-left">
+            <div class="col-md-12 "><h3>Another basic example</h3></div>
+            <div class="col-md-12 ">
+              <div>
+                <div
+                  class="row-item-container"
+                  [@heroState]="heroes[0].state"
+                  (click)="toggleStateOfHero(heroes[0].id)"
+                  >Toggle {{heroes[0].name}} {{heroes[0].state}}
+                </div>
+                <div
+                  class="row-item-container"
+                  [@heroState]="heroes[1].state"
+                  (click)="toggleStateOfHero(heroes[1].id)"
+                  >Toggle {{heroes[1].name}} {{heroes[1].state}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row text-left">
+            <div class="col-md-12 ">
+              <h3>Basic example - array with a loop</h3>
+            </div>
+            <div class="col-md-12 ">
+              <div *ngFor="let hero of heroes">
+                <div
+                  class="row-item-container"
+                  [@heroState]="hero.state"
+                  (click)="toggleStateOfHero(hero.id)"
+                  >Toggle {{hero.name}} {{hero.state}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row text-left">
+            <div class="col-md-12 ">
+              <h3>Null animations - Entering and leaving</h3>
+            </div>
+            <div class="col-md-12">
+              <h4 (click)="insertIndianHero()">Create another hero</h4>
+            </div>
+            <div class="col-md-12 ">
+              <div *ngFor="let indianHero of indianHeroes">
+                <div
+                  (click)="toggleIndianHero(indianHero.id)"
+                  class="row-item-container"
+                  [@indianHeroState]="indianHero.state"
+                  >
+                  Indian Hero {{indianHero.name}} {{indianHero.state}}
+                  <div
+                    (click)="deleteIndianHero(indianHero.id)"
+                    class="delete-hero"
+                    >
+                    Delete
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+    </div>
+  </div>
+</div>

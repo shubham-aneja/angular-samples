@@ -3,35 +3,28 @@ import { NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {RouterModule} from '@angular/router'
 import { HttpModule }    from '@angular/http';
-
-import {TaskService} from './tasks/task.service'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import {TasksListComponent} from './tasks/tasks-list.component'
-import {StarComponent} from './shared/star.component'
-import {DummyComponent} from './dummy-component/dummy.component'
-
-import {FilterTasks} from './tasks/task-list.pipe'
-
+import {TemplateSyntaxComponent} from './samples/template-syntax/template-syntax.component'
+import {AngularAnimationsComponent} from './samples/angular-animations/angular-animations.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    TasksListComponent,
-    FilterTasks,
-    StarComponent,
-    DummyComponent
+    TemplateSyntaxComponent,
+    AngularAnimationsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-      {path: 'dummy', component: DummyComponent},
-      {path: 'taskList/:status', component: TasksListComponent },
-      //{path: '**', redirectTo:'taskList/active'},
-      {path: '**', component: DummyComponent},
+      {path: 'template-syntax', component: TemplateSyntaxComponent},
+      {path: 'angular-animations', component: AngularAnimationsComponent},
+      {path: '**', redirectTo: "template-syntax"},
     ]),
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule
   ],
   //providers:[TaskService],
   bootstrap: [AppComponent]

@@ -1,0 +1,9 @@
+.row-item-container{
+  padding: 2vw;
+  margin: 1vw;
+  cursor: pointer;
+}
+
+.delete-hero{
+  cursor: pointer;
+}

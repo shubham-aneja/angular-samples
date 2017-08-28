@@ -1,0 +1,67 @@
+Shree Ganesh 
+1 	RESOLVED	
+	npm start not working after closing the application
+	:- "string was not terminated properly"
+	
+2 	RESOLVED
+	Added Css file not reflecting
+	:- That was styleUrls and styles not style and styleUrl
+	
+3  	RESOLVED 
+	Click event not working 
+	:- Its click not onClick
+	
+4	RESOLVED
+	Service provider not working 
+	:- Its providers not provider 
+	
+5	RESOLVED
+	constructor shorcut created variable "_productService" is  not accessible
+	use "this" when using class members
+	
+	
+6	RESOLVED
+	AppComponent.html:9 ERROR Error: No value accessor for form control with name: 'task'
+	Use <input /> insead of <Input/> ... notice the type of capital 'I'
+	
+7 
+	How to pass	array as input value to child component 
+	  <tasks-list tasks="['str1', 'str2', 'str3']"></tasks-list>
+	 OR
+	<tasks-list tasks=['str1', 'str2', 'str3']></tasks-list>	 
+	  
+	
+8* 
+	How to display type of any property from html file
+	  <div>{{typeof tasks}}</div> .. is giving error 
+	  
+9* 	
+	How to add new task from tast-list.component, since the complete information of task object is in task interface.
+		So do we have mind about all of the required information a task has or is there any better alternative ot achieve the same.
+
+10	RESOLVED
+	Route params not getting while using ActivatedRout
+		<router-outlet> not used.
+
+11 	RESOLVED
+	Pipe is getting wrong arguments, 		
+	First argument twice, then second argument. Third argument is not getting receive.	
+		FIRST ARGUMENT IS WITH WHAT PIPE IS USED. 	
+			EG tasklist | filterpipe:arg2:arg3  
+				.. first argument is fixed and that is ..tasklist
+12 	RESOLVED
+	index not working with ngFor
+		I WAS DOINT LIKE THIS   "let task of taskList ;let i = index| taskFilter:status:taskSearch; " 
+		THE CORRECT ONE IS THIS :- "let task of taskList| taskFilter:status:taskSearch; let i = index "
+
+		THE INDEX SHOULD COME AT LAST AFTER ALL THE FILTERS
+		
+13 	RESOLVED
+		ERROR :-  Error: Uncaught (in promise): Error: No provider for ConnectionBackend!
+					Error: No provider for ConnectionBackend!
+						at injectionError (core.es5.js:1169)
+						at noProviderError (core.es5.js:1207)
+						at ReflectiveInjector_.webpackJsonp.../../../core/@angular/core.es5.js.ReflectiveInjector_._throwOrNull (
+		Http service was provided (in app component)and HTTP module was also imported(in app module), that made http redundant and starting giving 
+			non-descriptive error. 	
+	
