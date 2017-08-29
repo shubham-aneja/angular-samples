@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="introductionInternationalization" datatype="html">
+        <source>
+        Angular sample for internationalization
+      </source>
+      <target>
+      Angular in Spanish
+      </target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src\app\samples\internationalization\internationalization.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">An introduction for internationalization</note>
+        <note priority="1" from="meaning">Angular sample</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

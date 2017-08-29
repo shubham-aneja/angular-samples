@@ -1,0 +1,19 @@
+<div>
+  <div class='row'>
+    <div class='col-md-12'>
+      <h1>{{title}}</h1>
+    </div>
+    <ol>
+      <li>
+        <div>
+          <h2>Aliasing props</h2>
+
+          <div *ngFor="let child of children" class='col-md-12'>
+            <comp-inter-input-alias [name]="child.name" [age]="child.age">
+            </comp-inter-input-alias>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
