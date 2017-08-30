@@ -3,39 +3,36 @@ import { NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {RouterModule} from '@angular/router'
 import { HttpModule }    from '@angular/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import {TemplateSyntaxComponent} from './samples/template-syntax/template-syntax.component'
-import {AngularAnimationsComponent} from './samples/angular-animations/angular-animations.component'
 import {InternationalizationComponent} from './samples/internationalization/internationalization.component'
 
 
 import {ComponentInteractionsModule} from './samples/component-interactions/component-interactions.module'
 import {TestingModule} from './samples/testing/testing.module'
+import {AngularAnimationsModule} from './samples/angular-animations/angular-animations.module'
+import {TemplateSyntaxModule} from './samples/template-syntax/template-syntax.module'
+import {InternationalizationModule} from './samples/internationalization/internationalization.module'
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TemplateSyntaxComponent,
-    AngularAnimationsComponent,
-    InternationalizationComponent,
+    AppComponent
   ],
   imports: [
-    ComponentInteractionsModule,
     BrowserModule,
     FormsModule,
-    TestingModule,
     RouterModule.forRoot([
-      {path: 'template-syntax', component: TemplateSyntaxComponent},
-      {path: 'angular-animations', component: AngularAnimationsComponent},
-      {path: 'internationalization', component: InternationalizationComponent},
-
-
       {path: '**', redirectTo: "template-syntax"},
     ]),
     HttpModule,
-    BrowserAnimationsModule
+
+    InternationalizationModule,
+    TemplateSyntaxModule,
+    AngularAnimationsModule,
+    ComponentInteractionsModule,
+    TestingModule
+
   ],
   bootstrap: [AppComponent]
 })
