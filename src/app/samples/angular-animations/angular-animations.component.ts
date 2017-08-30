@@ -31,8 +31,8 @@ const Heroes = [
         backgroundColor: '#cfd8dc',
         transform: 'scale(1.1)'
       })),
-      transition('inactive=> active', animate(1000,
-         keyframes([
+      transition('inactive <=> active, :enter, :leave', animate(1000,
+        keyframes([
           style({transform: 'translateX(-100%)'}),
           style({transform: 'translateX(100%)'}),
           style({transform: 'translateX(-20%)'}),
@@ -40,18 +40,8 @@ const Heroes = [
           style({transform: 'translateX(0)'}),
           style({transform: 'translateX(0)'}),
         ])
-      )),
-      transition('active => inactive', animate(1000,
-         keyframes([
-          style({transform: 'translateX(-100%)'}),
-          style({transform: 'translateX(100%)'}),
-          style({transform: 'translateX(-20%)'}),
-          style({transform: 'translateX(20%)'}),
-          style({transform: 'translateX(0)'}),
-        ])
-      )),
+      ))
     ]),
-
   ]
 })
 
@@ -61,14 +51,14 @@ export class AngularAnimationsComponent {
   tempHero:any = Heroes[0];
 
 
-  toggleStateOfHero(id):void {
+  toggleStateOfHero(id:any):void {
     /*updating in reference do not altering transitions
-    I guess this is because the object is getting created again and again due to
-    change in reference...
-    This c
-    .. */
+     I guess this is because the object is getting created again and again due to
+     change in reference...
+     This c
+     .. */
 
-/*    this.heroes = this.heroes.map((hero) => {
+    /*    this.heroes = this.heroes.map((hero) => {
      if (hero.id === id) {
      return {...hero, state: getUpdatedState(hero.state)}
      } else {
@@ -83,13 +73,19 @@ export class AngularAnimationsComponent {
   }
 
   insertHero() {
+
     this.heroes = [...this.heroes,
       {id: this.heroes.length, name: new Date(), state: 'active'}
     ]
   }
+
+  deleteHero($event, id) {
+    this.heroes = this.heroes.filter(hero=> hero.id !== id)
+    $event.stopPropagation()
+  }
 }
 
 
-const getUpdatedState = (prevState) => {
+const getUpdatedState = (prevState:any) => {
   return prevState = prevState == 'active' ? 'inactive' : 'active'
 }

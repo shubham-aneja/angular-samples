@@ -10,10 +10,12 @@ export class CompInterMissionService {
   missionConfirmed$ = this.missionConfirmedSource.asObservable();
 
   announceMission(mission) {
+    console.log('mission announced in service ', mission)
     this.missionAnnouncedSource.next(mission)
   }
 
   confirmMission(astronaut:string) {
+    console.log('mission confirmed in service by astronaut', astronaut)
     this.missionConfirmedSource.next(astronaut)
   }
 }

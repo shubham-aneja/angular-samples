@@ -8,9 +8,71 @@
         <div>
           <h2>Aliasing props</h2>
 
+          <h2>Intercepting props</h2>
+
+          <h2>Parents listens for child event</h2>
+
           <div *ngFor="let child of children" class='col-md-12'>
-            <comp-inter-input-alias [name]="child.name" [age]="child.age">
+            <comp-inter-input-alias
+              [name]="child.name"
+              [age]="child.age"
+              [id]="child.id"
+              (onAgeUpdate)="onAgeUpdate($event)"
+              >
             </comp-inter-input-alias>
+          </div>
+        </div>
+      </li>
+      <li>
+        <hr/>
+        <hr/>
+        <hr/>
+        <hr/>
+        <div>
+          <h2>Intercepting props with onchanges</h2>
+
+          <div>
+            <button (click)="newMinor()">New minor version</button>
+            <button (click)="newMajor()">New major version</button>
+            <comp-inter-intercept-onchange [major]="major" [minor]="minor"></comp-inter-intercept-onchange>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h2>Local variable</h2>
+
+          <h1>This example is commented in template, since local variable and @ViewChild are manipulating same
+            child</h1>
+
+          <div>
+            <div class="btn btn-primary" on-click="compIntLocalVar.start()">Start</div>
+            <div class="btn btn-primary" on-click="compIntLocalVar.stop()">Stop</div>
+            <!--<div>seconds passed {{compIntLocalVar.seconds}}</div>-->
+            <!--<comp-int-local-var #compIntLocalVar></comp-int-local-var>-->
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h2>Parent calls an @ViewChild</h2>
+
+          <p>since, the local variable is only available at template, what if
+            you want to use child component members in parent component class</p>
+
+          <div>
+            <div class="btn btn-primary" on-click="start()">Start by @ViewChild</div>
+            <div class="btn btn-primary" on-click="stop()">Stop by @ViewChild</div>
+            <div>@ViewChild seconds passed {{viewChildSeconds()}}</div>
+            <comp-int-local-var></comp-int-local-var>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h2>comp-inter-mission-control</h2>
+          <div>
+            <comp-inter-mission-control></comp-inter-mission-control>
           </div>
         </div>
       </li>
