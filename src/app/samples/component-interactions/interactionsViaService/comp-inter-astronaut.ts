@@ -39,7 +39,7 @@ export class CompInterAstronaut {
 
 
   ngOnDestroy() {
-    this.subscription.unSubscribe();
+    this.subscription.unsubscribe();
   }
 }
 

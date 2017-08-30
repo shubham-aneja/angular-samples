@@ -12,7 +12,7 @@ import {CompInterMissionControl} from './interactionsViaService/comp-inter-missi
 import {CompInterAstronaut} from './interactionsViaService/comp-inter-astronaut'
 
 @NgModule({
-  declarations:[
+  declarations: [
     ComponentInteractionsComponent,
     CompInterInputAlias,
     CompInterIntercept,
@@ -20,7 +20,7 @@ import {CompInterAstronaut} from './interactionsViaService/comp-inter-astronaut'
     CompInterMissionControl,
     CompInterAstronaut
   ],
-  imports:[
+  imports: [
     BrowserModule,
     RouterModule.forChild([
       {path: 'component-interactions', component: ComponentInteractionsComponent},

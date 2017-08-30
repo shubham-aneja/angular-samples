@@ -12,6 +12,7 @@ import {InternationalizationComponent} from './samples/internationalization/inte
 
 
 import {ComponentInteractionsModule} from './samples/component-interactions/component-interactions.module'
+import {TestingModule} from './samples/testing/testing.module'
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {ComponentInteractionsModule} from './samples/component-interactions/comp
     ComponentInteractionsModule,
     BrowserModule,
     FormsModule,
+    TestingModule,
     RouterModule.forRoot([
       {path: 'template-syntax', component: TemplateSyntaxComponent},
       {path: 'angular-animations', component: AngularAnimationsComponent},

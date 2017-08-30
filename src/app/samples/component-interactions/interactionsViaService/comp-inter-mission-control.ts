@@ -40,7 +40,7 @@ export class CompInterMissionControl {
 
 
   ngOnDestroy() {
-    this.subscription.unSubscribe();
+    this.subscription.unsubscribe();
   }
 }
 
