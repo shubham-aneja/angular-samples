@@ -13,7 +13,7 @@ src - https://www.youtube.com/watch?v=3QR8p03eKAk
       @@introductionHeader - id for translation entry
 
 
-3)  run  npm run i18n --  --i18nFormat=xlf  --outFile=messages.xlf
+3)  run ->  npm run i18n --  --i18nFormat=xlf  --outFile=messages.xlf
       this arguments can be skipped by setting default format as xlf,
         but I dont know how to do this.
     This step will produce a messages.xlf file in root path
@@ -34,6 +34,18 @@ src - https://www.youtube.com/watch?v=3QR8p03eKAk
       as messages.es.xlf
 
 5) Update the target element as desired translation
+
+<<<< To merge the translated text into component templates,
+      compile the application with the completed translation file.
+
+     For this - You provide the Angular compiler with three new pieces of information:
+
+     The translation file.
+     The translation file format.
+     The Locale ID (es or en-US for instance).
+ *** Process is Different for JIT and AOT
+
+ng serve --aot --locale es --i18n-format xlf --i18-file src/locale/messages.es.xlf
 
 
 6) ng xi18n -l es --progress --verbose
@@ -121,3 +133,31 @@ Handle singular and plural
 Select among alternative texts
 
 Nesting pluralization and selection expressions
+
+
+
+#################################################################
+28 aug - https://www.youtube.com/watch?v=TTZ7IWJO6pk
+@angular/compilar-cli ^4.0.0
+@angular/platform-server ^4.0.0
+
+
+add script
+  internationalize ng-xi18n -p tsconfig.json
+
+    in tsconfig.json
+    "angularCompilerOptions": {
+      "genDir": "./src/locale"
+    }
+
+
+
+
+
+
+
+
+
+
+Rought
+"./node_modules/.bin/ngc" --i18nFile=./locale/messages.es.xlf --locale=es --i18nFormat=xlf

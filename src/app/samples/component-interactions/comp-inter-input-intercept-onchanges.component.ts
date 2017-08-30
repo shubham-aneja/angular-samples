@@ -1,31 +1,35 @@
-import {Component, Input} from '@angular/core'
+import { Component, Input, OnChanges, SimpleChange } from '@angular/core';
 
 @Component({
-  selector: 'comp-inter-input-alias',
-  moduleId: module.id,
-  template: `<div>
-  <div class="row">
-  <div class="col-sm-12">
-  </div>
-  <div class="col-sm-6 font-weight-bold">[{{name}}]</div>
-  <div class="col-sm-6 font-weight-bold">[{{childAge}}]</div>
-  </div>
-  </div>  `
+  selector: 'comp-inter-intercept-onchange',
+  template: `
+    <h3>Version {{major}}.{{minor}}</h3>
+    <h4>Change log:</h4>
+    <ul>
+      <li *ngFor="let change of changeLog">{{change}}</li>
+    </ul>
+  `
 })
 
-export class CompInterInputAlias {
-  private _name:string='';
+export class CompInterIntercept implements OnChanges {
+  @Input() major:number;
+  @Input() minor:number;
+  changeLog:string[] = [];
 
-  @Input()
+  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+    let log:string[] = [];
+    for (let propName in changes) {
+      let changedProp = changes[propName];
+      let to = JSON.stringify(changedProp.currentValue);
+      if (changedProp.isFirstChange()) {
+        log.push(`Initial value of ${propName} set to ${to}`);
+      } else {
+        let from = JSON.stringify(changedProp.previousValue);
+        log.push(`${propName} changed from ${from} to ${to}`);
+      }
+    }
 
-  set name (name: string) {
-    this._name = name && name.trim();
+
+    this.changeLog.push(log.join(', '));
   }
-
-  get name (): string {
-    return this._name;
-  }
-
-  @Input("age") childAge:string;
-  title:string = 'Component Interactions Child';
 }

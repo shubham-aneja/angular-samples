@@ -5,7 +5,14 @@ import {CompInterMissionService} from './comp-inter-mission-service'
   selector: 'comp-inter-mission-control',
   moduleId: module.id,
   template: `<div>
-  <div><h1>Hello Mission control system</h1></div>
+  <div><h4>Hello Mission control system</h4></div>
+
+  <comp-inter-astronaut *ngFor="let astronaut of astronauts" [astronaut]="astronaut">
+  </comp-inter-astronaut>
+  <ul>
+  <div class="btn btn-primary" on-click="announceMission()">Announce Mission</div>
+  <li *ngFor="let log of logs">{{log}}</li>
+  </ul>
   </div>`,
   providers:[CompInterMissionService]
 })
@@ -28,7 +35,7 @@ export class CompInterMissionControl {
     const nextMission = this.missions[this.nextMission]
     this.logs.push(`${nextMission} announced`)
     this.missionService.announceMission(nextMission);
-    this.nextMission = (this.nextMission >= this.missions.length) ? 0 : this.nextMission + 1;
+    this.nextMission = (this.nextMission >= this.missions.length-1) ? 0 : this.nextMission + 1;
   }
 
 

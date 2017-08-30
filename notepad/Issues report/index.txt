@@ -80,4 +80,20 @@ Shree Ganesh
       (re-rendering not worked done then, I guess? ).
 
 
+16    Resolved
+      Not working
+      @Input('childage') age:string;
+      Error: Can't bind to 'age' since it isn't a known property of 'component-interactions-child'
+        SYSTEX PROBLEM
+          @Input("age") childAge:string;
+          @Input("original name") other-name:string;
 
+
+17    RESOLVED (Consumed 4-5 hours)
+      Subscribe not working, not getting any error.
+      Sample :- D:\shubham\projects\angular2\angular-samples\src\app\samples\component-interactions\interactionsViaService\comp-inter-astronaut.ts
+      SERVICE WAS IMPORTED IN BOTH CLASSES, SO BOTH HAD GOT DIFFERENT INSTANCE OF SERVICE,
+        SO THEY WERE NOT ABLE TO COMMUNICATE USING THAT SERVICE.
+
+
+UNRESOLVED - [7, 8, 9, 15]
