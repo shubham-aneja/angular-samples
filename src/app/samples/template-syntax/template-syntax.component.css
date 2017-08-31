@@ -1,1 +1,15 @@
 
+.click-here{
+  font-size: 3vw;
+  color: red;
+  cursor: pointer;
+}
+
+/*for ngClass*/
+.active h3{
+  color: green;
+}
+
+.inActive h3{
+  color: red;
+}

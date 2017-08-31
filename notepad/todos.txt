@@ -2,18 +2,17 @@ Shree Ganesh :-
 
 internationalization
 
-animation
 
 passing props to component that are being created in a parallel router-outlet
   and also the props are getting updated over time.
    so use observable instead.
-
-
-Lifecycle hooks
-create seprate modules for each sample folder
-
-Observables and Subject
-
-1 test module ....
+:- DONE IN COMPONENT INTERACTIONS, IN ASTRONAUT SERVICE.
 
 Leave animation not working
+Todos for 31 aug
+
+  template syntax
+  lifecycle hooks
+  Leave animatin not working
+
+Observables and subjects

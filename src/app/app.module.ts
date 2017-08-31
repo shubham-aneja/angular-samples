@@ -5,8 +5,6 @@ import {RouterModule} from '@angular/router'
 import { HttpModule }    from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {TemplateSyntaxComponent} from './samples/template-syntax/template-syntax.component'
-import {InternationalizationComponent} from './samples/internationalization/internationalization.component'
 
 
 import {ComponentInteractionsModule} from './samples/component-interactions/component-interactions.module'
@@ -14,6 +12,7 @@ import {TestingModule} from './samples/testing/testing.module'
 import {AngularAnimationsModule} from './samples/angular-animations/angular-animations.module'
 import {TemplateSyntaxModule} from './samples/template-syntax/template-syntax.module'
 import {InternationalizationModule} from './samples/internationalization/internationalization.module'
+import {LifecycleHooksModule} from './samples/lifecycle-hooks/lifecycle-hooks.module'
 
 @NgModule({
   declarations: [
@@ -31,7 +30,8 @@ import {InternationalizationModule} from './samples/internationalization/interna
     TemplateSyntaxModule,
     AngularAnimationsModule,
     ComponentInteractionsModule,
-    TestingModule
+    TestingModule,
+    LifecycleHooksModule
 
   ],
   bootstrap: [AppComponent]

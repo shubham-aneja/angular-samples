@@ -2,7 +2,9 @@ Shree Ganesh 17 Aug
 
 Life cycle hooks
 	Ref : - https://angular.io/guide/lifecycle-hooks
+
 ngDoCheck
+
   @ViewChild(DoCheckComponent) childView: DoCheckComponent;
 
 

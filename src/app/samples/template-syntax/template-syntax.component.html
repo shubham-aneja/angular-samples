@@ -1,7 +1,240 @@
 <div>
   <div class='row'>
-    <div class='col-md-3 col-md-push-9'>
-      <div>{{title}}</div>
+    <div class='col-md-12'>
+      <h1>{{title}}</h1>
+    </div>
+    <div class="col-md-12">
+      <ul>
+        <li>
+          <h2>Topic1: Interpolation</h2>
+
+          <h3>Can use any expression here in interpolation but not global variables.</h3>
+
+          <h3>No global variable can be access in template. Just create any helper in your component</h3>
+
+          <div class="row">
+            <ol>
+              <li>
+                <div class="row">
+                  <p>The sum of 1 + 1 is {{1 + 1}}</p>
+
+                  <p>But we cann't do "typeof 2", since that is a global variable</p>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3>
+                      [name]="[10,20]"
+                    </h3>
+                  </div>
+                  <div class="col-md-6"><h4>[name:10,20] and [typeof name:object]</h4></div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3>
+                      [name]=" '[10, 20]' "
+                    </h3>
+                  </div>
+                  <div class="col-md-6">
+                    <h4>
+                      [name:[10, 20]] and [typeof name:string]
+                    </h4>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3>
+                      name="[10,20]"
+                    </h3>
+                  </div>
+                  <div class="col-md-6"><h4>[name:[10,20]] and [typeof name:string]</h4></div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3>
+                      name="10"
+                    </h3>
+                  </div>
+                  <div class="col-md-6">
+                    <h4>
+                      [name:10] and [typeof name:string]
+                    </h4>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3>
+                      name=" '10' "
+                    </h3>
+                  </div>
+                  <div class="col-md-6">
+                    <h4>
+                      [name:'10'] and [typeof name:string]
+                    </h4>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </li>
+        <li>
+          <div class='col-md-12'>
+            <h2>Topic2: Reference variable - </h2>
+            <input type="text" #inputRef/>
+
+            <h4>Input and its components</h4>
+
+            <h4>value - {{inputRef.value}}</h4>
+
+            <h4>placeholder - {{inputRef.placeholder}}</h4>
+
+            <div on-click="getData()">It need a trigger to show values, so <span class="click-here">Click here</span> to
+              reflect input value
+            </div>
+            <child [name]="'[10, 20]'">Creating Child component...</child>
+          </div>
+        </li>
+        <li>
+          <div class='col-md-12'>
+            <h2>Topic3: ngClass</h2>
+
+            <h4>Updating variable value directly in event binding</h4>
+
+            <h4>bind-ngClass instead of [ngClass]</h4>
+
+            <div bind-ngClass="{'active':isActive, 'inActive': !isActive}">
+              <h3>Active status is : {{isActive}}</h3>
+            </div>
+            <button class="btn-primary btn" on-click="isActive= !isActive">Toggle active behavior</button>
+          </div>
+        </li>
+        <li>
+          <div class='col-md-12'>
+            <h2>Topic4: Manipulating attribute</h2>
+            <h4>Since by binding we useually bind a property with our variable or so. </h4>
+            <h4> And attribute are just required to provide an initial vaue </h4>
+            <h4> WHAT if we dont have any property for an attribute, :- </h4>
+            <h4> Consider the ARIA, SVG, and table span attributes. They are pure attributes.</h4>
+            <h4> They do not correspond to element properties, and they do not set element properties.</h4>
+            <h4> There are no property targets to bind to. </h4>
+            <h4> Then use [attr.colspan] instead of [colspan] </h4>
+            <table border=1>
+              <!--  expression calculates colspan=2 -->
+              <tr>
+                <td [attr.colspan]="1 + 1+2">One-Two</td>
+              </tr>
+
+              <!--this will throw an error
+              ERROR: There is no `colspan` property to set!
+  <           <tr><td colspan="{{1 + 1}}">Three-Four</td></tr>-->
+
+              <tr>
+                <td>Three-Four</td>
+              </tr>
+              <tr>
+                <td>Five</td>
+                <td>Six</td>
+                <td>Seven</td>
+                <td>Eight</td>
+                <td>Nine</td>
+                <td>Ten</td>
+              </tr>
+            </table>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <h2>Topic5 ngModel</h2>
+
+            <h3>Follow this rule:-
+              <h3>&lt;my-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"&gt;</h3>
+
+              <h3>&lt;/my-sizer&gt;</h3>
+            </h3>
+
+            <div class="col-md-12">
+              <span>[input [(ngModel)]="inputNgModel" ]</span>
+              <input [(ngModel)]="inputNgModel">
+            </div>
+            <div class="col-md-12">
+              <span>
+                [(input)="inputWithoutNgModel=$event.target.value"  [value]="inputWithoutNgModel || 'A' "]
+              </span>
+              <input (input)="inputWithoutNgModel=$event.target.value" [value]="inputWithoutNgModel || 'A' ">
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Topic6: *ngFor with trackby</h2>
+
+              <h3>Trackby is used for performance enhancement, its more or less like the keys in react</h3>
+            </div>
+            <div class="col-md-12">
+              <div *ngFor="let hero of heroes; trackBy: trackByHeroes">
+                ({{hero.id}}) {{hero.name}}
+              </div>
+
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Topic7: ngSwitch</h2>
+            </div>
+            <div on-click="ratingNgSwitch=1">Rate 1 star</div>
+            <div on-click="ratingNgSwitch=2">Rate 2 star</div>
+            <div on-click="ratingNgSwitch=3">Rate 3 star</div>
+            <div on-click="ratingNgSwitch=4">Rate 4 star</div>
+            <div on-click="ratingNgSwitch=5">Rate 5 star</div>
+            <div on-click="ratingNgSwitch=6">Even more</div>
+            <div on-click="ratingNgSwitch=''">Remove your rating</div>
+            <div class="col-md-12">
+              <div [ngSwitch]="ratingNgSwitch">
+                <div *ngSwitchCase="1">Very bad</div>
+                <div *ngSwitchCase="2">Bad</div>
+                <div *ngSwitchCase="3">We will improve our services</div>
+                <div *ngSwitchCase="4">Thanks, visit again</div>
+                <div *ngSwitchCase="5">Collect your free ice cream</div>
+                <div *ngSwitchCase="6">You liar</div>
+                <div *ngSwitchDefault>Please rate</div>
+              </div>
+            </div>
+          </div>
+
+        </li>
+        <li>
+          <div class="row">
+            <div class="col-md-12">
+              <h2>
+                Topic8: Safe navigation operator (?)
+              </h2>
+
+              <h3>
+                Will display the name if currentHero exists <i><b>Person?.name</b></i>
+              </h3>
+            </div>
+            <div class="col-md-12">
+              <b>Person Name(Person?.name) :{{Person?.name}}</b>
+            </div>
+            <div class="col-md-12">
+              <b>Hero Name(Hero?.name) :{{Hero?.name}}
+              </b>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

@@ -31,9 +31,11 @@ Shree Ganesh
 	<tasks-list tasks=['str1', 'str2', 'str3']></tasks-list>
 
 
-8*
+8*  RESOLVED
 	How to display type of any property from html file
 	  <div>{{typeof tasks}}</div> .. is giving error
+	 :- Global variables like typeof window are not available in template.
+  SRC:- https://stackoverflow.com/questions/37511055/how-to-check-type-of-variable-in-ngif-in-angular2
 
 9*
 	How to add new task from tast-list.component, since the complete information of task object is in task interface.
@@ -96,4 +98,19 @@ Shree Ganesh
         SO THEY WERE NOT ABLE TO COMMUNICATE USING THAT SERVICE.
 
 
-UNRESOLVED - [7, 8, 9, 15]
+18
+      INTERNATIONALIZATION not working...
+
+19  RESOLVED
+  Template reference variable assigned to an input, but its changes not
+    reflecting in the same view
+  :- IT TOOK ONE TRIGGER TO UPDATE THE VIEW, LIKE ADDING CONSOLE ON CLICK
+    ANYWHERE ON THE SAME VIEW IS GOING TO HELP
+    SRC :- D:\shubham\projects\angular2\angular-samples\src\app\samples\template-syntax\template-syntax.component.html
+
+
+
+UNRESOLVED - [7, 9, 15, 18]
+
+reference variable input value issue
+

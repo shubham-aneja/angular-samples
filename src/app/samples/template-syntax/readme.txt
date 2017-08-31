@@ -2,26 +2,37 @@ Shree Ganesh 16 July
 *******************************************************
 	Template expressions
 	<input #heroInput> {{heroInput.value}}
+	//ALSO COVERED IN COMPONENT INTERACTION LOCAL VARIABLE
+	  To call stop and start function of parent
 
 
 	Template statements
 	<form #heroForm (ngSubmit)="onSubmit(heroForm)"> ... </form>
+	// Will cover this in form section
 *******************************************************
 
-
+	.. also we need to pass an attribute in square braces if wanted to bind it
+	  with some variable
 	<hero-detail [hero]="currentHero"></hero-detail>
 *******************************************************
+
+
+
+
+  // ngClass
 	<div [ngClass]="{'special': isSpecial}"></div>
 *******************************************************
 
-	<div (myClick)="clicked=$event" clickable>click me</div> ???
+	<div (myClick)="clicked=$event" clickable>click me</div> ??? what the hell is myClick
+	  in docs it is described as alias input and output, but how to alias default div component ??
+	  SRC - https://angular.io/guide/template-syntax#aliasing-io
 *******************************************************
 
 	Manipulating attribute
 	<button [attr.aria-label]="help">help</button>
 *******************************************************
 
-
+  Use bind instead of [] to bind a property
 	<img [src]="heroImageUrl">
 
 	Some people prefer the bind- prefix alternative, known as the canonical form:
@@ -115,6 +126,7 @@ Attribute directives
 			The sizer shown above is an example of this technique.
 
 	save  value in uppercase
+		  THIS HAD NOT WORKED FOR ME
 		<input
 	  [ngModel]="currentHero.name"
 	  (ngModelChange)="setUppercaseName($event)">
@@ -138,7 +150,7 @@ NgFor  can also be applied on Components .
 <hero-detail *ngFor="let hero of heroes" [hero]="hero"></hero-detail>
 
 TRACK-BY
-
+              <h3>Trackby is used for performance enhancement, its more or less like the keys in react</h3>
 	trackByHeroes(index: number, hero: Hero): number { return hero.id; }
 
 
