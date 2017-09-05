@@ -3,20 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule} from '@angular/router'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {TestingComponent} from './testing.component'
+import {WorkshopComponent, MyCheckboxDirectory} from './workshop.component'
 
 @NgModule({
   declarations: [
-    TestingComponent
+    WorkshopComponent,
+    MyCheckboxDirectory
   ],
   imports: [
     BrowserModule,
     RouterModule.forChild([
-      {path: 'testing', component: TestingComponent},
+      {path: 'workshop', component: WorkshopComponent},
     ])
   ]
 })
 
-export class TestingModule {
+export class WorkshopModule {
 
 }

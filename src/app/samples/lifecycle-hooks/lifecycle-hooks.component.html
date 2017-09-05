@@ -1,7 +1,18 @@
 <div>
-  <div class='row'>
+  <div class='row  text-left'>
     <div class='col-md-12'>
       <h1 class="heading-title">{{title}}</h1>
+    </div>
+
+    <div class="col-md-12">
+      <h3><a target="_blank" href="https://angular.io/generated/live-examples/lifecycle-hooks/eplnkr">
+        Live examples from angular documentations
+      </a></h3>
+
+      <h3><a href="/lifecycle-hooks#basic-example">
+        Basic example of mine describing lifecycle hooks
+      </a></h3>
+
     </div>
     <div class="col-md-12">
       <ol>
@@ -9,19 +20,152 @@
           <div class="row">
             <div class="col-md-12">
               <h2 class="title">
-                Topic1: Bla bla bla
+                Topic1: Descriptions
               </h2>
 
-              <h3  class="subtitle">
-                Summary bla bla bla
+              <h3 class="subtitle">
+                Some difinition
               </h3>
             </div>
             <div class="col-md-12 explanation">
-                Sample and explanation
+              <ol>
+
+                <li>
+                  <div>
+                    <h3 class="text-left">ngOnChanges</h3>
+                    <h4>Respond when Angular (re)sets data-bound input properties. The method receives a SimpleChanges
+                      object of current and previous property values.
+                      Called before ngOnInit() and whenever one or more data-bound input properties change.
+                    </h4>
+                    <h4>
+                      My Exp_
+                      When an component is getting some property, and it gets changes then onChanges will be called.
+                    </h4>
+                    <h4>
+                      It also does not work/execute when property values changes from some subsciption.
+                      Like <a href="/component-interactions#mission-control-by-subscription"><b><i>this</i></b></a>
+                    </h4>
+                  </div>
+                </li>
+
+                <li>
+                  <div>
+                    <h3 class="text-left">ngOnInit</h3>
+                    <h4>
+                      Initialize the directive/component after Angular first displays the data-bound properties and sets
+                      the directive/component's input properties.
+                      Called once, after the first ngOnChanges().
+                    </h4>
+                  </div>
+                </li>
+
+                <li>
+                  <div>
+                    <h3 class="text-left">ngDoCheck</h3>
+                    <h4>
+                      Detect and act upon changes that Angular can't or won't detect on its own.
+                      Called during every change detection run, immediately after ngOnChanges() and ngOnInit().
+                    </h4>
+                    <h5>
+                      It has a frightful cost. This hook is called with enormous frequency—after every change detection
+                      cycle no matter where the change occurred. It's called over twenty times in this example before
+                      the user can do anything.
+                      Most of these initial checks are triggered by Angular's first rendering of unrelated data
+                      elsewhere on the page. Mere mousing into another &lt;input&gt; triggers a call. Relatively few
+                      calls reveal actual changes to pertinent data. Clearly our implementation must be very lightweight
+                      or the user experience suffers.
+                    </h5>
+                  </div>
+                </li>
+
+                <li>
+                  <div>
+                    <h3 class="text-left">ngAfterContentInit</h3>
+                    <h4>
+                      Respond after Angular projects external content into the component's view.
+                      Called once after the first ngDoCheck().
+                      A component-only hook.
+                    </h4>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <h3 class="text-left">ngAfterContentChecked</h3>
+                    <h4>
+                      Respond after Angular checks the content projected into the component.
+                      Called after the ngAfterContentInit() and every subsequent ngDoCheck().
+                      A component-only hook. </h4>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <h3 class="text-left">ngAfterViewInit</h3>
+                    <h4>
+                      Respond after Angular initializes the component's views and child views.
+                      Called once after the first ngAfterContentChecked().
+                      A component-only hook.
+                    </h4>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <h3 class="text-left">ngAfterViewChecked</h3>
+                    <h4>
+                      Respond after Angular checks the component's views and child views.
+                      Called after the ngAfterViewInit and every subsequent ngAfterContentChecked().
+                      A component-only hook.
+                    </h4>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <h3 class="text-left">ngOnDestroy</h3>
+                    <h4>
+                      Cleanup just before Angular destroys the directive/component. Unsubscribe Observables and detach
+                      event handlers to avoid memory leaks.
+                      Called just before Angular destroys the directive/component.
+                    </h4>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <h3 class="text-left">Rought flow</h3>
+                    <pre>
+                      On any change
+                        doCheck(ask to check the view)
+                          -> contentChecked
+                          -> ViewChecked
+                            Now after checks, check if any changes found during contentChecked and viewChecked
+                              if so
+                                  then,
+                                      if change is "destroy"  -> calls destroy lifecycle
+                                      if change is "update"   -> calls onChanges -> again contentChecked -> viewUpdate -> check if change found? if so, repeat the cycle
+                    </pre>
+                  </div>
+                </li>
+              </ol>
             </div>
           </div>
         </li>
       </ol>
+      <div class="col-md-12">
+        <h2>Analysing</h2>
+
+        <div>
+          <lifecycle-hooks-sample-parent></lifecycle-hooks-sample-parent>
+        </div>
+      </div>
+      <div class="col-md-12">
+
+        <h2><a href="/component-interactions#mission-control-by-subscription">
+          Proof: onChanges not works even on subscription value updates
+        </a></h2>
+
+        <div>
+          <lifecycle-hooks-sample-parent></lifecycle-hooks-sample-parent>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

@@ -24,22 +24,25 @@ Shree Ganesh
 	AppComponent.html:9 ERROR Error: No value accessor for form control with name: 'task'
 	Use <input /> insead of <Input/> ... notice the type of capital 'I'
 
-7
+7 RESOLVED
 	How to pass	array as input value to child component
 	  <tasks-list tasks="['str1', 'str2', 'str3']"></tasks-list>
 	 OR
 	<tasks-list tasks=['str1', 'str2', 'str3']></tasks-list>
+   :- ANSWER IS <tasks-list [tasks]="['str1', 'str2']" ></tasks-list>
+   FOR DETAILS. GO TO TEMPLATE-SYNTAX SAMPLES..
 
-
-8*  RESOLVED
+8   RESOLVED
 	How to display type of any property from html file
 	  <div>{{typeof tasks}}</div> .. is giving error
 	 :- Global variables like typeof window are not available in template.
   SRC:- https://stackoverflow.com/questions/37511055/how-to-check-type-of-variable-in-ngif-in-angular2
 
 9*
-	How to add new task from tast-list.component, since the complete information of task object is in task interface.
-		So do we have mind about all of the required information a task has or is there any better alternative ot achieve the same.
+	How to add new task from tast-list.component, since the complete information
+	  of task object is in task interface.
+  So do we have mind about all of the required information a task has
+		  or is there any better alternative ot achieve the same.
 
 10	RESOLVED
 	Route params not getting while using ActivatedRout
@@ -108,9 +111,20 @@ Shree Ganesh
     ANYWHERE ON THE SAME VIEW IS GOING TO HELP
     SRC :- D:\shubham\projects\angular2\angular-samples\src\app\samples\template-syntax\template-syntax.component.html
 
+20
+    How do component update..
+      If two components are siblings,
+        then if I make a change in one, other will also update?
+        If yes, then is there any way to control this.
+        If no, then it's been determined that change is performed for
+          its sibling, not for that component.
+
+21
+    Angular vs react
 
 
-UNRESOLVED - [7, 9, 15, 18]
+
+UNRESOLVED - [9, 15, 18, 20, 21]
 
 reference variable input value issue
 

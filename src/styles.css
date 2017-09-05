@@ -20,3 +20,32 @@ body, input[text], button {
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.pl-2{
+ padding-left: 2vw;
+}
+
+.mt-2{
+ margin-top: 2vw;
+}
+
+.mt-3{
+ margin-top: 3vw;
+}
+
+.mt-4{
+ margin-top: 4vw;
+}
+
+
+.highlight{
+  background-color: blueviolet;
+}
+
+.font-size-2{
+  font-size: 2vw;
+}
+
+.font-size-3{
+  font-size: 3vw;
+}

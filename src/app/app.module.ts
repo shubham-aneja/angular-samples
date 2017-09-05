@@ -8,11 +8,15 @@ import { AppComponent } from './app.component';
 
 
 import {ComponentInteractionsModule} from './samples/component-interactions/component-interactions.module'
-import {TestingModule} from './samples/testing/testing.module'
+import {WorkshopModule} from './samples/workshop/workshop.module'
 import {AngularAnimationsModule} from './samples/angular-animations/angular-animations.module'
 import {TemplateSyntaxModule} from './samples/template-syntax/template-syntax.module'
 import {InternationalizationModule} from './samples/internationalization/internationalization.module'
 import {LifecycleHooksModule} from './samples/lifecycle-hooks/lifecycle-hooks.module'
+import {DirectivesModule} from './samples/directives/directives.module'
+
+/*Forms module*/
+import {UserInputModule} from './samples/forms/user-input/user-input.module'
 
 @NgModule({
   declarations: [
@@ -30,8 +34,12 @@ import {LifecycleHooksModule} from './samples/lifecycle-hooks/lifecycle-hooks.mo
     TemplateSyntaxModule,
     AngularAnimationsModule,
     ComponentInteractionsModule,
-    TestingModule,
-    LifecycleHooksModule
+    WorkshopModule,
+    LifecycleHooksModule,
+    DirectivesModule,
+
+    /*Forms modules*/
+    UserInputModule
 
   ],
   bootstrap: [AppComponent]

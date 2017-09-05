@@ -1,0 +1,160 @@
+<div>
+
+  <div>
+    <h2 class="mt-4">Structural directives evolution</h2>
+
+    <div class="font-size-2">
+      <a href="https://angular.io/guide/structural-directives#the-asterisk--prefix" target="_blank">
+        Click here for Structural directives evolution
+      </a>
+    </div>
+  </div>
+  <div>
+    <h2 class="mt-4"><a target="_blank"
+                        href="https://angular.io/guide/structural-directives#write-a-structural-directive">Creating
+      </a>structural directive:</h2>
+
+    <div class="pl-2">
+
+      <h3 on-click="isItCool=!isItCool">Toggle Cooling</h3>
+
+      <h3>Is it cool?
+        <ng-container *myUnless="isItCool">Yes</ng-container>
+        <ng-container *myUnless="!isItCool">No</ng-container>
+      </h3>
+
+    </div>
+
+    <div class="pl-2">
+
+    </div>
+  </div>
+  <div>
+    <h2 class="mt-4">Example1: *ngIf *ngFor [ngSwitch] *ngSwitchCase</h2>
+
+    <div
+      *ngFor="let moodObj of moods; let i = index;let odd=odd;let even=even;trackBy:trackByMood"
+      class="pl-2">
+      <div [class.highlight]="odd" *ngIf="moodObj && moodObj.name" [ngSwitch]="moodObj.mood">
+        <h3 [ngClass]="{'highlight':odd}">The mood of [{{moodObj.name}}] is</h3>
+
+        <h3>[
+          <span *ngSwitchCase="'good'">Good</span>
+          <span *ngSwitchCase="'neutral'">Neutral</span>
+          <span *ngSwitchDefault>Unspecified</span>
+          <span *ngIf="odd">::Odd </span>
+          <span *ngIf="even">::Even</span>
+          ]</h3>
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <h2 class="mt-4">Example2: ng-template</h2>
+    <h4><a target='_blank' href="https://angular.io/guide/structural-directives#the-ng-template">More info</a></h4>
+
+    <div class="pl-2">
+      <h3>If there is no structural directive added to ng-templete
+        then angular will convert ng-template and its children to comments,
+        and those elements disappear.
+      </h3>
+
+      <div>
+        <h4>In this example, the first ng-template will convert to comment in compile time</h4>
+
+        <p>Hip!</p>
+        <ng-template>
+          <p>Hip inside not visible, since ng-template has no structural directory with it</p>
+        </ng-template>
+        <ng-template [ngIf]="true">
+          <p>Hip inside ng-template!, is visible ; since ng-template is having ngIF structural directive</p>
+        </ng-template>
+        <p>Hooray!</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div>
+    <h2 class="mt-4">ng-container</h2>
+    <h4><a target='_blank'
+           href="https://angular.io/guide/structural-directives#group-sibling-elements-with-ng-container">More info</a>
+    </h4>
+
+    <div class="pl-2">
+      <div>
+        <h4>Why ??</h4>
+        <h4>Sometime just for the sake of structural directive, we have to add an extra
+          container element.Introducing another container element—typically a
+          <b><i>span</i></b> or <b><i>div</i></b>—to group the elements under a single root is
+          usually harmless. Usually ... but not always. Here are some examples, where this could be a failure</h4>
+        <ol>
+          <li>
+            <h3>The grouping element may break the template appearance</h3>
+            <h4>Here span is added for ngIf, but incidently, someone has applied some css over "span" under "p"</h4>
+
+            <div>
+              <b>Problem</b>
+
+              <p class="pl-2"> I turned the corner
+                  <span *ngIf="hero">
+                    and saw {{hero.name}}. I waved
+                  </span>
+                and continued on my way.
+              </p>
+
+            </div>
+            <div>
+              <b>Solution (Just simplt replace the ng-container with span)</b>
+
+              <p class="pl-2"> I turned the corner
+                <ng-container *ngIf="hero">
+                  and saw {{hero.name}}. I waved
+                </ng-container>
+                and continued on my way.
+              </p>
+
+            </div>
+          </li>
+          <li>
+            <h3>some HTML elements require all immediate children to be of a specific type.
+              For example, the &lt;select&gt; element requires
+              &lt;option&gt; children. You can't wrap
+              the options in a conditional &lt;div&gt; or a &lt;span&gt;.
+
+              When you try this,
+            </h3>
+
+            <div>
+              Problem
+              <div class="pl-2"><select [(ngModel)]="hero">
+                  <span *ngFor="let h of heroes">
+                    <span *ngIf="showSad || h.emotion !== 'sad'">
+                    <option [ngValue]="h">{{h.name}} ({{h.emotion}})</option>
+              </span>
+            </span>
+              </select>
+              </div>
+            </div>
+
+            <div>
+              Solution
+
+              <div class="pl-2">
+                <select [(ngModel)]="hero">
+                  <ng-container *ngFor="let m of moods">
+                    <ng-container *ngIf="m.name">
+                      <option [ngValue]="h">{{m.name}} ({{m.mood}})</option>
+                    </ng-container>
+                  </ng-container>
+                </select>
+
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</div>
