@@ -1,0 +1,36 @@
+<div>
+  <div class='row  text-left'>
+    <div class='col-md-12'>
+      <h1 class="heading-title">{{title}}</h1>
+    </div>
+
+    <div class="col-md-12">
+      <h3>
+        There are three kinds of directives in Angular:
+        <ul>
+          <li>
+            <b>Components</b>—directives with a template.
+          </li>
+          <li><b>Structural directives</b>—change the DOM layout by adding and removing DOM elements.
+            like *ngFor - usually prefixed by "*"
+          </li>
+          <li>
+            <b>Attribute directives</b>—change the appearance or behavior of an element, component, or another
+            directive.
+            example ngStyle, ngClass
+          </li>
+        </ul>
+      <b><i>Note: You can apply many attribute directives to one host element. You can only apply one structural directive to a host element.</i></b>
+      </h3>
+
+        <div class="col-md-12">
+          <h2>Topic1: <strong>Attribute directive</strong></h2>
+          <attribute-directive></attribute-directive>
+        </div>
+      <div class="col-md-12">
+          <h2>Topic2: <strong>Structural directive</strong></h2>
+        <structural-directive></structural-directive>
+        </div>
+    </div>
+  </div>
+</div>

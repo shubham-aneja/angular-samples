@@ -1,0 +1,79 @@
+<div>
+  <div class='row text-left'>
+    <div class='col-md-12'>
+      <h1 class="heading-title">{{title}}</h1>
+    </div>
+
+
+    <div class="col-md-12">
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="title">
+            Topic1: Using <b>Reference variable</b> over <b>Passing $event</b>
+          </h2>
+
+
+          <h3 class="subtitle">
+            <a target="_blank" href="https://angular.io/guide/user-input#passing-event-is-a-dubious-practice">
+              More about this
+            </a>
+          </h3>
+        </div>
+        <div class="col-md-12 pl-2">
+          <h3>
+            You need to know more about html implementation to access details form $event object.
+            So prefer reference variable where can.
+            <b><i>See the example below</i></b>
+          </h3>
+
+          <div class="pl-2">
+            <h4>Value of this input is [{{sampleInput.value}}]</h4>
+            <input type="text" on-keyup="0" #sampleInput>
+            <h4>
+              <b>Note:</b> There is a dummy binding of on-keyup. Since the angular only updates the screen
+              in response to async events like keyup or Updating properties from parent.
+            </h4>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="title">
+            Topic2: Specific event, like keyup.enter
+          </h2>
+
+          <h3></h3>
+
+          <div class="pl-2">
+            <h4>Done editing? <strong>{{valueEntered? 'Yes': 'No'}}</strong></h4>
+            <h4>Updated name : <b>{{sampleInputForEnter.value}}</b></h4>
+            <input type="text" on-keyup.enter="valueEntered=true" #sampleInputForEnter>
+            <h4>But this should also work on blur as well</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="title">
+            Topic2: Blue event
+          </h2>
+
+          <h3></h3>
+
+          <div class="pl-2">
+            <h4>Done editing? <strong>{{valueEnteredAgain? 'Yes': 'No'}}</strong></h4>
+            <h4>Updated name : <b>{{sampleInputForEnterBlur.value}}</b></h4>
+            <input type="text" (blur)="valueEnteredAgain=true" on-keyup.enter="valueEnteredAgain=true" #sampleInputForEnterBlur>
+            <h4>But this should also work on blur as well</h4>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
