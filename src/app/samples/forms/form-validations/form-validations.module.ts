@@ -7,13 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {FormValidationsComponent} from './form-validations.component'
 
-import {forbiddenNameValidator} from './forbidden-name.directive'
+import {ForbiddenValidatorDirective} from './forbidden-name.directive'
 
 @NgModule({
 
   declarations: [
     FormValidationsComponent,
-    //forbiddenNameValidator
+    ForbiddenValidatorDirective
   ],
   imports: [
     BrowserModule,
