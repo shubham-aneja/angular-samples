@@ -123,8 +123,131 @@ Shree Ganesh
     Angular vs react
 
 
+22  RESOLVED
+    #name="ngModel"
+    in
+    <input type="text" class="form-control" id="name"
+           required
+           [(ngModel)]="model.name" name="name"
+           #name="ngModel">
+    SRC:- https://angular.io/guide/forms#show-and-hide-validation-error-messages
 
-UNRESOLVED - [9, 15, 18, 20, 21]
+    :- Used to refer the directive ngModel...
+    every directive has a exportAs, "ngModel" is a exportAs for ngModel directive.
 
-reference variable input value issue
+
+
+Issues in reactive form detail [23-28]
+
+23. RESOLVED
+
+    How they are returning data here
+      getHeroes(): Observable<Hero[]> {
+          return of(heroes).delay(this.delayMs); // simulate latency with delay
+        }
+
+     return of(newHero).delay(this.delayMs); // simulate latency with delay
+
+    :- THIS IS OF OPERATOR IN OBSERVABLE ...
+      Ref- https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/of.md
+
+
+      SRC - D:\shubham\projects\angular2\angular-samples\src\app\samples\forms\reactive-forms\reactive-form-depth\hero.service.ts
+
+
+24     RESOLVED
+      Related to first
+      On receiving data from above observable, how are they using it like this
+            this.heroes = this.heroService.getHeroes()
+      Since observables can be used only with subscribe ...
+      :- THEY ARE USING ASYNC PIPES
+
+25    ???
+      secretLairs: this.fb.array([]),
+        Shouldn't we have to specify here that it is an array
+          of Address. ??
+      OR can we type of array elements in FORM BUILDER
+
+26      RESOLVED
+      What ngOnChanges is doing
+        :- It is updating form values in FormGroup with the latest value
+          of hero.
+         eg. for the very first time, when user changes hero from navigation
+         On Revert - it is resetting FormGroup with the stale hero data,
+            that user wanted to be set(this is what revert means)
+         On Submit - ?? Que - 27 or 28
+
+
+
+<----save
+
+27    RESOLVED
+      prepareSaveHero()
+        why create deep copy, why don't just pass the original address
+          objects and array
+       :- A user's subsequent changes to a lair street would mutate an address street in the saveHero.
+
+28    Resolved
+      How  hero is updating in list componentj post save
+        when updating in only form component
+      :-Hero-service is updating in refernce of hero object, which is being
+      shared by hero-detail and hero-list both.
+
+
+
+29     What submit is calling ngOnChanges
+          Why updating name and address on submit
+          In short, why it is calling ngOnChanges
+            Even it is resetting super power and side kick thing.
+
+          I guess this is just for the sake of resetting the state.
+  <----save
+
+29    RESOLVED
+      What is going in Revert
+      :-revert is resetting the state by updating the formModel
+           by the data of hero. That remains un-updated till save.
+
+
+30  RESOLVED
+    ngOnChanges not working on name changes...
+      Working on submit and reset, that too triggered by those function itself.
+      :- That is working dude, when hero-list updates the [hero] property.
+          eg. for the very first time, when user changes hero from navigation
+
+
+
+31
+      SOME OBSERVABLES Methods are not working...
+      angular-samples\src\app\samples\forms\reactive-forms
+      \reactive-form-depth\hero-list.component.ts
+
+<<<<< Reactive form done...
+
+32  -
+    //this.type =options.type; is not working in question-textbook
+      but this.type =options['type'] is working...
+      src:-
+
+      1)angular-samples\src\app\samples\forms\dynamic-forms\question-textbook.ts
+
+33 -
+      Why the formgroup is required here,
+        since we already creating another formGroup into other component
+          where our actual form components get created
+          SRC-
+          1)angular-samples\src\app\samples\forms\dynamic-forms\dynamic-forms.component.html
+
+          2)https://angular.io/guide/dynamic-form#question-form-components
+
+34  - RESOLVED
+      While using custom validations on reactive form
+
+      Uncaught (in promise): InvalidCharacterError: Failed to execute 'setAttribute' on 'Element':
+            '[formGroup' is not a valid attribute name.
+      :- SYNTAX ERROR
+        [formGroup="reactiveForm"] this should be like [formGroup]="reactiveForm"
+        (THE CLOSING SQUARE BRACKET)
+
+UNRESOLVED - [9, 15, 18, 20, 21, 25, 29, 30, 31, 32, 33]
 

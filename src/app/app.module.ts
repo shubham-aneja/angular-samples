@@ -17,6 +17,12 @@ import {DirectivesModule} from './samples/directives/directives.module'
 
 /*Forms module*/
 import {UserInputModule} from './samples/forms/user-input/user-input.module'
+import {TemplateDrivenModule} from './samples/forms/template-driven/template-driven.module'
+import {ReactiveFormModule} from './samples/forms/reactive-forms/reactive-form.module'
+import {DynamicFormsModule} from './samples/forms/dynamic-forms/dynamic-forms.module'
+import {FormValidationsModule} from './samples/forms/form-validations/form-validations.module'
+
+
 
 @NgModule({
   declarations: [
@@ -39,8 +45,11 @@ import {UserInputModule} from './samples/forms/user-input/user-input.module'
     DirectivesModule,
 
     /*Forms modules*/
-    UserInputModule
-
+    UserInputModule,
+    TemplateDrivenModule,
+    ReactiveFormModule,
+    DynamicFormsModule,
+    FormValidationsModule
   ],
   bootstrap: [AppComponent]
 })
