@@ -1,0 +1,109 @@
+<div>
+  <div class='row text-left'>
+    <div class='col-md-12'>
+      <h1 class="heading-title">{{title}}</h1>
+    </div>
+
+
+    <div class="col-md-12">
+      <h2 class="title">
+        Topic1: Some basics about forms module
+      </h2>
+
+      <div class="container">
+        <h2>1: If ngModel is used inside a form tag, then</h2>
+
+        <div class="pl-2">
+          <h3>1.Element having ngModel should have a "name" assigned by name attribute.
+            Otherwise gives error.
+          </h3>
+
+          <h3>2. Element assigned some classed based on the form state, like:
+          </h3>
+
+
+        </div>
+        <h2>2: Also use case of [hidden]</h2>
+        <h2>3: Reference variable to refer directory</h2>
+
+        <div class="pl-2">
+          <h3>Example: </h3>
+
+          <div class="container">
+            <h1>Hero Form</h1>
+
+            <h2>{{diagnostic}}</h2>
+
+            <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+              <div [hidden]="submitted">
+
+                <div class="form-group">
+                  <label for="name">Name</label>
+
+                  <input type="text" class="form-control" id="name"
+                         required
+                         [(ngModel)]="model.name"
+                         name="name"
+                         #name="ngModel"
+                    >
+                  <div
+                    [hidden]="name.valid || name.pristine"
+                    class="alert alert-danger"
+                    >
+                    Name is required
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="alterEgo">Alter Ego</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="alterEgo"
+                    [(ngModel)]="model.alterEgo"
+                    name="alterEgo"
+                    >
+
+                </div>
+
+                <div class="form-group">
+                  <label for="power">Hero Power</label>
+                  <select
+                    [(ngModel)]="model.power"
+                    name="power"
+                    class="form-control" id="power" required>
+                    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                  </select>
+                </div>
+
+                <button [disabled]="!heroForm.form.valid" type="submit" class="btn btn-success">Submit</button>
+                <button type="button"
+                        class="btn btn-default"
+                        (click)="heroForm.reset();newHero();">New Hero</button>
+              </div>
+              <div [hidden]="!submitted">
+                <h2>You submitted the following:</h2>
+                <div class="row">
+                  <div class="col-xs-3">Name</div>
+                  <div class="col-xs-9  pull-left">{{ model.name }}</div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-3">Alter Ego</div>
+                  <div class="col-xs-9 pull-left">{{ model.alterEgo }}</div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-3">Power</div>
+                  <div class="col-xs-9 pull-left">{{ model.power }}</div>
+                </div>
+                <br>
+                <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

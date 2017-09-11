@@ -1,0 +1,185 @@
+<div class="text-left">
+  <div class='row'>
+    <div class='col-md-12'>
+      <h1 class="heading-title">{{title}}</h1>
+    </div>
+
+    <p>Learn about other <code>FormControl</code> properties in the
+      <a target='_blank' href="https://angular.io/api/forms/AbstractControl">
+        <em>AbstractControl</em></a> API reference.</p>
+
+
+    <div class='col-md-12'>
+      <h3><i>FormControl in a FormGroup</i></h3>
+
+      <div class="pl-2">
+        <div class="form-group">
+
+          <label class="center-block" for="name">Name</label>
+          <input type="text" id="name1" class="form-control" [formControl]="name">
+        </div>
+        <p>Name value: {{ name.value | json }}</p>
+      </div>
+    </div>
+
+    <div class='col-md-12'>
+      <h3><i>FromGroup and FormControl</i></h3>
+
+      <div class="pl-2">
+        <div class="form-group">
+
+
+        <form [formGroup]="heroForm" novalidate>
+          <div class="form-group">
+            <label class="center-block">Name:
+              <input class="form-control" formControlName="name">
+            </label>
+          </div>
+        </form>
+
+          <p>Name value: {{ heroForm.value | json }}</p>
+          <p>Name value: {{ heroForm.value.name | json }}</p>
+          <p>Name value: {{ heroForm.get('name').value}}</p>
+
+
+
+      </div>
+    </div>
+
+
+    <div class='col-md-12'>
+      <h3><i>FormBuilder and FormGroup with <b>validation</b></i></h3>
+
+      <div class="pl-2">
+        <form [formGroup]="formBuilderForm" novalidate>
+          <div class="form-group">
+
+            <label class="center-block" for="formBuilderHeroName">Name</label>
+            <input type="text" id="formBuilderHeroName" class="form-control"
+                   formControlName="formBuilderHeroName">
+          </div>
+        </form>
+        <p>Form value: {{ formBuilderForm.value | json }}</p>
+
+        <p>Form status: {{ formBuilderForm.status | json }}</p>
+      </div>
+    </div>
+
+
+
+    <div class='col-md-12'>
+      <h3><i><b>FormBuilder</b> with multiple FormControls</i></h3>
+
+      <div class="pl-2">
+        <form [formGroup]="formBuilderForm2" novalidate>
+          <div class="form-group">
+            <label class="center-block">Name:
+              <input class="form-control" formControlName="name">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="center-block">Street:
+              <input class="form-control" formControlName="street">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="center-block">City:
+              <input class="form-control" formControlName="city">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="center-block">State:
+              <select class="form-control" formControlName="state">
+                <option *ngFor="let state of states" [value]="state">{{state}}</option>
+              </select>
+            </label>
+            <h3>You must bind the option's value property with [value]="state".
+              If you do not bind the value, the select shows the first option from the data model.</h3>
+          </div>
+          <div class="form-group">
+            <label class="center-block">Zip Code:
+              <input class="form-control" formControlName="zip">
+            </label>
+          </div>
+          <div class="form-group radio">
+            <h4>Super power:</h4>
+            <label class="center-block"><input type="radio" formControlName="power" value="flight">Flight</label>
+            <label class="center-block"><input type="radio" formControlName="power" value="x-ray vision">X-ray vision</label>
+            <label class="center-block"><input type="radio" formControlName="power" value="strength">Strength</label>
+          </div>
+          <div class="checkbox">
+            <label class="center-block">
+              <input type="checkbox" formControlName="sidekick">I have a sidekick.
+            </label>
+          </div>
+
+        </form>
+        <p>Form value: {{ formBuilderForm2.value | json }}</p>
+
+        <p>Form status: {{ formBuilderForm2.status | json }}</p>
+      </div>
+    </div>
+
+
+    <div class='col-md-12'>
+      <h3><i>Nested FormGroups</i></h3>
+
+      <div class="pl-2">
+        <form [formGroup]="formBuilderForm3" novalidate>
+          <div class="form-group">
+            <label class="center-block">Name:
+              <input class="form-control" formControlName="name">
+            </label>
+          </div>
+          <div formGroupName="address" class="well well-lg">
+            <h4>Secret Lair</h4>
+            <div class="form-group">
+              <label class="center-block">Street:
+                <input class="form-control" formControlName="street">
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="center-block">City:
+                <input class="form-control" formControlName="city">
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="center-block">State:
+                <select class="form-control" formControlName="state">
+                  <option *ngFor="let state of states" [value]="state">{{state}}</option>
+                </select>
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="center-block">Zip Code:
+                <input class="form-control" formControlName="zip">
+              </label>
+            </div>
+          </div>
+
+
+        </form>
+        <p>Form value: {{ formBuilderForm3.value | json }}</p>
+
+        <p>Form status: {{ formBuilderForm3.status | json }}</p>
+      </div>
+    </div>
+
+    <div class='col-md-12'>
+      <h3><i>Inspect FormControl Properties</i></h3>
+      <h4 class="pl-2"><b>(Of above form)</b></h4>
+
+      <div class="pl-2">
+        <p>Name value(formBuilderForm3.get('name').value): {{ formBuilderForm3.get('name').value | json }}</p>
+        <p>Street value(formBuilderForm3.get('address.street').value):
+          {{ formBuilderForm3.get('address.street').value | json }}
+        </p>
+        <p>Form value: {{ formBuilderForm3.value | json }}</p>
+
+        <p>Form status: {{ formBuilderForm3.status | json }}</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>

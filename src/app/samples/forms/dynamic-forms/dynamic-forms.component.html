@@ -1,0 +1,24 @@
+<div>
+  <div class='row text-left'>
+    <div class='col-md-12'>
+      <h1 class="heading-title">{{title}}</h1>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+      <div *ngFor="let que of questions">
+        <dynamic-form-question
+          [question]="que"
+          [form]="form"
+          >
+
+        </dynamic-form-question>
+      </div>
+      <div class="form-row">
+        <button type="submit" [disabled]="!form.valid">Save</button>
+      </div>
+      <div *ngIf="payLoad" class="form-row">
+        <strong>Saved the following values</strong><br>{{payLoad}}
+      </div>
+    </form>
+
+  </div>
+</div>

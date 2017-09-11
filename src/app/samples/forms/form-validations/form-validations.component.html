@@ -1,0 +1,83 @@
+<div class="text-left">
+  <div class='row'>
+    <div class='col-md-12'>
+      <h1 class="heading-title">{{title}}</h1>
+    </div>
+    <div class='col-md-12'>
+      <h2 class="heading-title">Template driven validation</h2>
+
+      <div class="pl-2">
+        <h3>
+          Add the same validation attributes as you would with native HTML form validation.
+          Angular uses directives to match these attributes with validator functions in the framework.
+        </h3>
+
+        <h3>Example</h3>
+
+        <input
+          id="name"
+          name="name"
+          class="form-control"
+
+          #name="ngModel"
+          required minlength="4" forbiddenName="bob"
+          [(ngModel)]="hero.name"
+
+          >
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+             class="alert alert-danger">
+
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 4 characters long.
+          </div>
+          <div *ngIf="name.errors.forbiddenName">
+            Name cannot be Bob.
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class='col-md-12'>
+      <h2 class="heading-title">Reactive from validation</h2>
+
+      <div class="pl-2">
+        <h3>
+        </h3>
+
+
+        <form [formGroup]="reactiveForm">
+
+
+        <h3>Example with reactive form</h3>
+        <input style="width:100%" formControlName="reactiveName" >
+
+          <div *ngIf="reactiveName.invalid && (reactiveName.dirty || reactiveName.touched)"
+               class="alert alert-danger">
+
+            <div *ngIf="reactiveName.errors.required">
+              Name is required.
+            </div>
+            <div *ngIf="reactiveName.errors.minlength">
+              Name must be at least 4 characters long.
+            </div>
+            <div *ngIf="reactiveName.errors.forbiddenName">
+              Name cannot be Bob.
+            </div>
+          </div>
+
+        </form>
+
+        <p>Name value:reactiveForm.value - {{ reactiveForm.value | json }}</p>
+
+      </div>
+    </div>
+
+  </div>
+</div>
