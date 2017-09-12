@@ -14,6 +14,10 @@ import {TemplateSyntaxModule} from './samples/template-syntax/template-syntax.mo
 import {InternationalizationModule} from './samples/internationalization/internationalization.module'
 import {LifecycleHooksModule} from './samples/lifecycle-hooks/lifecycle-hooks.module'
 import {DirectivesModule} from './samples/directives/directives.module'
+import {PipeModule} from './samples/pipes/pipe.module'
+
+/*Test case module*/
+import {TestCaseModule} from './samples/testcase/testcase.module'
 
 /*Forms module*/
 import {UserInputModule} from './samples/forms/user-input/user-input.module'
@@ -43,13 +47,16 @@ import {FormValidationsModule} from './samples/forms/form-validations/form-valid
     WorkshopModule,
     LifecycleHooksModule,
     DirectivesModule,
+    PipeModule,
 
     /*Forms modules*/
     UserInputModule,
     TemplateDrivenModule,
     ReactiveFormModule,
     DynamicFormsModule,
-    FormValidationsModule
+    FormValidationsModule,
+
+    TestCaseModule
   ],
   bootstrap: [AppComponent]
 })

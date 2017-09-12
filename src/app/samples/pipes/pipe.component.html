@@ -1,0 +1,47 @@
+<div class="text-left">
+  <div class='row'>
+    <div class='col-md-12'>
+      <h1 class="heading-title">{{title}}</h1>
+    </div>
+
+
+    <div class="col-md-12">
+      <div class="row pl-2">
+        <div class="col-md-12">
+          <h2 class="title">
+            Topic1: Built in pipes
+          </h2>
+
+          <div class="pl-2">
+            <h3 class="subtitle">
+              {{name | uppercase}}'s
+              {{msg | lowercase}}
+              {{bddyDate | date: format | lowercase | uppercase}}
+            </h3>
+            <button (click)="toggleFormat()">Toggle Format</button>
+            <div class="col-md-12 explanation">
+              <a target="_blank" href="https://angular.io/api?type=pipe">
+                <h4>
+                  ...Find some more about built in pipes
+                </h4>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-12 explanation">
+          <h2>Topic2: Custom pipe</h2>
+
+          <div class="pl-2">
+            <input type="number" [(ngModel)]="number" placeholder="number">
+            <input type="number" [(ngModel)]="power"  placeholder="power">
+            <h3> {{number}} raise to the power {{power}} = {{number | exponentialStrength: power}}</h3>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

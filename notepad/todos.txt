@@ -15,5 +15,34 @@ Todos for 31 aug
   lifecycle hooks
   Leave animatin not working
 
+
+Todo's as on 12 september
+
+Development phase
+  Pipes - some part pending (after custom pipes)
+  dynamic components.
+  Modules after form
+  Leave animation not working
+
+
+Unit testing
+  Complete testing pending
+
 Observables and subjects
-https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/of.md
+  https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/of.md
+
+Angular vs React
+
+Week[11-17 september]
+  Target
+    Form Validations and Pipe[1day - 8 hours]
+
+    Unit testing[3 days - 24 hours]
+
+    Angular vs React [1 day - 8 hour]
+  Report
+    11 Monday  - Form validations took more than expected time due to errors.
+      Form validations :Done
+      pipe - till custom pipes...
+
+    12 Tuesday - Unit testing
