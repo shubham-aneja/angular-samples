@@ -249,5 +249,12 @@ Issues in reactive form detail [23-28]
         [formGroup="reactiveForm"] this should be like [formGroup]="reactiveForm"
         (THE CLOSING SQUARE BRACKET)
 
+35    - RESOLVED
+        Unit test cases
+        Property 'toContainer' does not exist on type 'ArrayLikeMatchers<string>'.
+        :- Problem - expect(content).toContainer('shubham', 'Expect name')
+          toContainer was used instead of toContain
+
+
 UNRESOLVED - [9, 15, 18, 20, 21, 25, 29, 30, 31, 32, 33]
 
