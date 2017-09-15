@@ -19,6 +19,9 @@ import {WelcomeComponent} from './samples/dependency-service-sync/dependency-ser
 import {TwainService} from './samples/dependency-service-async/twain.service'
 import {TwainComponent} from './samples/dependency-service-async/dependency-service-async.component'
 
+/*For Input and Output*/
+import {DashboardComponent, DashboardHeroComponent} from './samples/input-output/input-output.component'
+
 @NgModule({
   declarations: [
     TestCaseComponent,
@@ -29,7 +32,9 @@ import {TwainComponent} from './samples/dependency-service-async/dependency-serv
 
     WelcomeComponent,
 
-    TwainComponent
+    TwainComponent,
+
+    DashboardComponent, DashboardHeroComponent
   ],
   imports: [
     BrowserModule,
