@@ -5,9 +5,9 @@ import { By }              from '@angular/platform-browser';
 import {click} from'../../customEvents'
 
 
-import {DashboardHeroComponent} from './input-output.component'
+import {DashboardHeroComponent} from '../../hero-app/hero.component'
 
-import {Hero} from '../../hero'
+import {Hero} from '../../hero-app/hero'
 
 
 describe('Input output of a component', ()=> {

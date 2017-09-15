@@ -20,7 +20,8 @@ import {TwainService} from './samples/dependency-service-async/twain.service'
 import {TwainComponent} from './samples/dependency-service-async/dependency-service-async.component'
 
 /*For Input and Output*/
-import {DashboardComponent, DashboardHeroComponent} from './samples/input-output/input-output.component'
+import { DashboardComponent} from './hero-app/dashboard.component'
+import { DashboardHeroComponent} from './hero-app/hero.component'
 
 @NgModule({
   declarations: [
