@@ -2,6 +2,8 @@ import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule} from '@angular/router'
 
+import {InputOutputModule} from './samples/input-output/input-output.module'
+
 import {TestCaseComponent} from './testcase.component'
 
 /*For sync - inline template and styling*/
@@ -19,9 +21,6 @@ import {WelcomeComponent} from './samples/dependency-service-sync/dependency-ser
 import {TwainService} from './samples/dependency-service-async/twain.service'
 import {TwainComponent} from './samples/dependency-service-async/dependency-service-async.component'
 
-/*For Input and Output*/
-import { DashboardComponent} from './hero-app/dashboard.component'
-import { DashboardHeroComponent} from './hero-app/hero.component'
 
 @NgModule({
   declarations: [
@@ -33,17 +32,17 @@ import { DashboardHeroComponent} from './hero-app/hero.component'
 
     WelcomeComponent,
 
-    TwainComponent,
-
-    DashboardComponent, DashboardHeroComponent
+    TwainComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forChild([
       {path: 'testcase', component: TestCaseComponent},
-    ])
+    ]),
+    InputOutputModule
   ],
   providers:[UserService, TwainService]
+
 })
 
 export class TestCaseModule {

@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router }            from '@angular/router';
+
 import {Hero} from './hero'
 import {heroes} from './hero-data'
-
+//import { HeroService } from './hero.service';
 
 @Component({
   selector: 'dashboard-hero',
@@ -13,6 +15,10 @@ import {heroes} from './hero-data'
 export class DashboardHeroComponent {
   @Input() hero:Hero;
   @Output() selected = new EventEmitter<Hero>();
+  //constructor(
+  //  private heroService: HeroService,
+  //  private router: Router) {
+  //}
 
   click() {
 
