@@ -15,8 +15,10 @@ import {HeroService} from './hero-app/hero.service'
   imports: [
     BrowserModule
   ],
-  exports:[DashboardComponent,
-    DashboardHeroComponent],
+  exports:[
+    DashboardComponent,
+    DashboardHeroComponent
+  ],
   providers:[HeroService]
 })
 

@@ -33,6 +33,9 @@ Observables and subjects
 
 Angular vs React
 
+Angular cli
+    https://github.com/angular/angular-cli
+
 Week[11-17 september]
   Target
     Form Validations and Pipe[1day - 8 hours]
@@ -46,3 +49,13 @@ Week[11-17 september]
       pipe - till custom pipes...
 
     12 Tuesday - Unit testing
+
+
+    15 Sep  - Friday
+      Unit testing
+        Code management
+        Third level module
+        Routing--testing
+
+
+

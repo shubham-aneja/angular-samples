@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule} from '@angular/router'
 
 import {InputOutputModule} from './samples/input-output/input-output.module'
+import {RoutingTestingModule} from './samples/routing/routing-testing.module'
 
 import {TestCaseComponent} from './testcase.component'
 
@@ -39,7 +40,8 @@ import {TwainComponent} from './samples/dependency-service-async/dependency-serv
     RouterModule.forChild([
       {path: 'testcase', component: TestCaseComponent},
     ]),
-    InputOutputModule
+    InputOutputModule,
+    RoutingTestingModule
   ],
   providers:[UserService, TwainService]
 

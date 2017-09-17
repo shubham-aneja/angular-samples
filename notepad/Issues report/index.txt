@@ -255,6 +255,25 @@ Issues in reactive form detail [23-28]
         :- Problem - expect(content).toContainer('shubham', 'Expect name')
           toContainer was used instead of toContain
 
+36    - RESOLVED
+        Unit Test cases - input and output
+        MODULE not working
+        :- We  have to export the component from .module.ts file.
+        You might think that you have never done the same for other modules till now, like: pipes/ animation/
+        The answer is, there they were rendering there own component, no external component were rendering their selector.
+        But as in our input-output testing module, we need that one. So there I faced this issue
+
+
+37    RESOLVED
+        Test case file has some html content in bottom
+          what is this in reality.
+          something from the last upated test
+        :- By default it shows the one you are working on, But you can change by selecting a test case in the list
+
+38    RESOLVED
+        Test case doesnt displays the complete component in the bottom of the test screen
+        :- It displays the last updated screen. Call fixture.detectChanges() and that display will
+            get updated to latest
 
 UNRESOLVED - [9, 15, 18, 20, 21, 25, 29, 30, 31, 32, 33]
 
