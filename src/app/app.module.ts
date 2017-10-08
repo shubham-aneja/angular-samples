@@ -15,6 +15,7 @@ import {InternationalizationModule} from './samples/internationalization/interna
 import {LifecycleHooksModule} from './samples/lifecycle-hooks/lifecycle-hooks.module'
 import {DirectivesModule} from './samples/directives/directives.module'
 import {PipeModule} from './samples/pipes/pipe.module'
+import {DynamicComponentModule} from './samples/dynamic-component/dynamic-component.module'
 
 /*Test case module*/
 import {TestCaseModule} from './samples/testcase/testcase.module'
@@ -48,6 +49,7 @@ import {FormValidationsModule} from './samples/forms/form-validations/form-valid
     LifecycleHooksModule,
     DirectivesModule,
     PipeModule,
+    DynamicComponentModule,
 
     /*Forms modules*/
     UserInputModule,
