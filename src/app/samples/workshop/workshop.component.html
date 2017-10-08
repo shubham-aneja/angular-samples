@@ -5,14 +5,14 @@
     </div>
 
 
-<h1>
-  <div >
-    Work under construction for attribute directory
-    <div myCheckboxDirectory>
-      <input type="checkbox" >
-    </div>
-  </div>
-</h1>
+    <h1>
+      <div>
+        Work under construction for attribute directory
+        <div myCheckboxDirectory>
+          <input type="checkbox">
+        </div>
+      </div>
+    </h1>
 
     <div class="col-md-12">
       <ol>
@@ -20,15 +20,32 @@
           <div class="row">
             <div class="col-md-12">
               <h2 class="title">
-                Topic1: Bla bla bla
+                Topic1: Text selection
               </h2>
 
-              <h3  class="subtitle">
-                Summary bla bla bla
+              <h3 class="subtitle">
+                <a target="_blank" href="https://jsfiddle.net/h191w4ed/1/">
+                  Src
+                </a>
               </h3>
             </div>
             <div class="col-md-12 explanation">
-              Sample and explanation
+              <h3>Working for text area only</h3>
+
+              <div class="pl-2">
+                <textarea #t (select)="onSelect(t.value.substring(t.selectionStart, t.selectionEnd))">
+
+                </textarea>
+              </div>
+              <span>{{selectedText}}</span>
+            </div>
+
+            <div class="col-md-12 explanation">
+              <h3>Trying for div</h3>
+
+              <div class="pl-2">
+                <div (mouseup)="onDivSelection()">Hello worldd</div>
+              </div>
             </div>
 
           </div>

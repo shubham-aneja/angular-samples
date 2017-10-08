@@ -275,5 +275,28 @@ Issues in reactive form detail [23-28]
         :- It displays the last updated screen. Call fixture.detectChanges() and that display will
             get updated to latest
 
+39:-  RESOLVED
+      What is use value and use class in providers
+          providers:    [ {provide: UserService, useValue: userServiceStub } ]
+      :- Ref to D:\shubham\projects\angular2\angular-samples\src\app\samples\testcase\readme.txt
+
+
+40      RESOLVED
+        spyOn
+            spy = spyOn(twainService, 'getQuote')
+                  .and.returnValue(Promise.resolve(testQuote));
+
+            const spy = spyOn(router, 'navigateByUrl');
+            const navArgs = spy.calls.first().args[0];
+
+            this.gotoSpy = spyOn(comp, 'gotoList').and.callThrough();
+            this.navSpy  = spyOn(router, 'navigate');
+
+             const spy = spyOn(fancy, 'getValue').and.returnValue(stubValue);
+
+        :- Testing with real instances of dependencies causes our test code to know about the inner workings of
+          other classes resulting in tight coupling and brittle code.
+          For examples and further info - D:\shubham\projects\angular2\angular-samples\src\app\samples\testcase\readme.txt
+
 UNRESOLVED - [9, 15, 18, 20, 21, 25, 29, 30, 31, 32, 33]
 

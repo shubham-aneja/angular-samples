@@ -5,6 +5,9 @@ import {Hero} from './hero'
 import {heroes} from './hero-data'
 //import { HeroService } from './hero.service';
 import { HeroService }         from './hero.service';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/map';
+
 
 @Component({
   selector: 'routing-dashboard-hero',
@@ -55,15 +58,21 @@ export class RoutingHeroDetail {
   }
 
   ngOnInit():void {
+    /**
+     *With Params
+     */
     //this.route.params
-    //  .switchMap((params: ParamMap) => this.heroService.getHero(+params.get('id')))
-    //  .subscribe(hero => this.hero = hero);
-    this.route.params.subscribe(params => {
-      //console.log('params', params);
-      this.hero = this.heroService.getHeroStatically(+params['id'])
-
-      //this.status = params.status
+    //  .subscribe(params => {
+    //  console.log('555 params', params);
+    //  console.log('555 this.route.params', this.route.params);
+    //  console.log('555 this.route.paramMap', this.route.paramMap);
+    //  })
+    /**
+     *With ParamMap
+     */
+    this.route.paramMap.subscribe( paramsMap => {
+      const id =  paramsMap.get("id");
+      this.hero = this.heroService.getHeroStatically(+id);
     })
   }
-
 }

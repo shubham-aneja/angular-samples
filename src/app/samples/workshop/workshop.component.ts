@@ -9,8 +9,17 @@ import {Component, Input, ElementRef, HostListener, Directive} from '@angular/co
 
 export class WorkshopComponent {
   title:string = 'Workshop Component';
+  selectedText:string='yupp' ;
 
+/*On select work*/
+  onSelect(e) {
+    console.log('text selected... ', e)
+    this.selectedText = e;
+  }
 
+  onDivSelection() {
+    alert('div text selected')
+  }
 }
 
 

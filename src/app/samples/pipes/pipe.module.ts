@@ -5,11 +5,13 @@ import {RouterModule} from '@angular/router'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {PipeComponent, ExponentialStrengthPipe} from './pipe.component'
+import {HeroAsyncMessageComponent} from './async-message.pipe'
 
 @NgModule({
   declarations: [
     PipeComponent,
-    ExponentialStrengthPipe
+    ExponentialStrengthPipe,
+    HeroAsyncMessageComponent
   ],
   imports: [
     BrowserModule,

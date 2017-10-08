@@ -21,6 +21,12 @@ export class PipeComponent {
     return this.format = this.format == 'shortDate' ? 'longDate' : "shortDate" ;
   }
 
+  createImpureSyntax = `
+  @Pipe({
+    name: 'flyingHeroesImpure',
+    pure: false
+    })
+              `
 }
 
 @Pipe({name: 'exponentialStrength'})

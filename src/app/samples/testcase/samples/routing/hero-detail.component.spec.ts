@@ -1,90 +1,123 @@
-//import {ComponentFixture, TestBed, inject,   async, ComponentFixture,
-//    fakeAsync, inject, TestBed, tick} from '@angular/core/testing'
-//import {DebugElement} from '@angular/core'
-//import { By }              from '@angular/platform-browser';
-//import { Router, ActivatedRoute }            from '@angular/router';
-//import { Http } from '@angular/http';
-//
-//import {click} from'../../customEvents'
-//import {ActivatedRouteStub} from '../../router-stubs'
-//
-//import {RoutingDashboardHeroComponent, RoutingHeroDetail} from './hero-app/hero.component'
-//import {RoutingDashboardComponent} from './hero-app/dashboard.component'
-//import {Hero} from './hero-app/hero'
-//import { HeroService }         from './hero-app/hero.service';
-//
-//const firstHero = new Hero(15, 'Magneta');
-//
-//describe('when navigate to existing hero', () => {
-//  let expectedHero: Hero;
-//  let activatedRoute ;
-//  let comp:RoutingDashboardComponent;
-//  let fixture:ComponentFixture<RoutingDashboardComponent>;
-//
-//
-//  beforeEach( async(() => {
-//    expectedHero = firstHero;
-//    activatedRoute = new ActivatedRouteStub();
-//    activatedRoute.testParamMap = { id: expectedHero.id };
-//    createComponent();
-//
-//  }));
-//
-//  it('should display that hero\'s name', () => {
-//    expect(page.nameDisplay.textContent).toBe(expectedHero.name);
-//  });
-//
-//
-//
-///*Helpers */
-//function createComponent() {
-//  fixture = TestBed.createComponent(RoutingHeroDetail);
-//  comp    = fixture.componentInstance;
-//  page    = new Page();
-//
-//  // 1st change detection triggers ngOnInit which gets a hero
-//  fixture.detectChanges();
-//  return fixture.whenStable().then(() => {
-//    // 2nd change detection displays the async-fetched hero
-//    fixture.detectChanges();
-//    page.addPageElements();
-//  });
-//}
-//});
-//
-//
-//
-//class Page {
-//  gotoSpy:      jasmine.Spy;
-//  navSpy:       jasmine.Spy;
-//
-//  saveBtn:      DebugElement;
-//  cancelBtn:    DebugElement;
-//  nameDisplay:  HTMLElement;
-//  nameInput:    HTMLInputElement;
-//
-//  constructor() {
-//    const router = TestBed.get(Router); // get router from root injector
-//    this.gotoSpy = spyOn(comp, 'gotoList').and.callThrough();
-//    this.navSpy  = spyOn(router, 'navigate');
-//  }
-//
-//  /** Add page elements after hero arrives */
-//  addPageElements() {
-//    if (comp.hero) {
-//      // have a hero so these elements are now in the DOM
-//      const buttons    = fixture.debugElement.queryAll(By.css('button'));
-//      this.saveBtn     = buttons[0];
-//      this.cancelBtn   = buttons[1];
-//      this.nameDisplay = fixture.debugElement.query(By.css('span')).nativeElement;
-//      this.nameInput   = fixture.debugElement.query(By.css('input')).nativeElement;
-//    }
-//  }
-//}
-//
-//
-//
-//
+import {ComponentFixture, TestBed, inject, async,
+  fakeAsync, tick} from '@angular/core/testing'
+import {DebugElement} from '@angular/core'
+import { By }              from '@angular/platform-browser';
+import { Router, ActivatedRoute, NavigationExtras }            from '@angular/router';
+import { Http } from '@angular/http';
+import { FormsModule }         from '@angular/forms';
+
+
+import {click} from'../../customEvents'
+import {ActivatedRouteStub} from '../../router-stubs'
+
+import {RoutingDashboardHeroComponent, RoutingHeroDetail} from './hero-app/hero.component'
+import {RoutingDashboardComponent} from './hero-app/dashboard.component'
+import {Hero} from './hero-app/hero'
+import { HeroService }         from './hero-app/hero.service';
+
+const firstHero = new Hero(15, 'Magneta');
+
+class RouterStub {
+  navigate(commands:any[], extras?:NavigationExtras) {
+  }
+}
+
+class FakeHeroService {
+  getHeroStatically(id) {
+    const res = id != 0 ? firstHero : {};
+    return res;
+  }
+}
+
+
+describe('when navigate to valid id', () => {
+  let activatedRoute:ActivatedRouteStub;
+  let comp:RoutingHeroDetail;
+  let fixture:ComponentFixture<RoutingHeroDetail>;
+  let page:Page;
+
+  describe('when hero exists', () => {
+    let expectedHero:Hero;
+    beforeEach(async(() => {
+
+      expectedHero = firstHero;
+      activatedRoute = new ActivatedRouteStub();
+      activatedRoute.testParamMap = {id: expectedHero.id};
+
+      configureTestModule();
+
+      createComponent();
+
+    }));
+
+    it('should display that hero\'s name', () => {
+      expect(page.nameDisplay.textContent).toBe(expectedHero.name);
+    });
+
+  });
+
+  describe('when hero doesn\'t  exists', () => {
+    beforeEach(async(() => {
+
+      activatedRoute = new ActivatedRouteStub();
+      activatedRoute.testParamMap = {id: 0};
+      configureTestModule();
+      createComponent();
+    }));
+
+    it('should have hero.id === 0', () => {
+      expect(comp.hero.id).toBe(undefined);
+    });
+
+    it('should not display hero\'s name', () => {
+      console.log('page.nameDisplay', page.nameDisplay)
+      expect(page.nameDisplay.textContent).toBe('');
+    });
+
+  });
+
+  function configureTestModule() {
+    TestBed.configureTestingModule({
+      imports: [FormsModule],
+      declarations: [RoutingHeroDetail], // NO!  DOUBLE DECLARATION
+      providers: [
+        {provide: ActivatedRoute, useValue: activatedRoute},
+        {provide: HeroService, useClass: FakeHeroService},
+        {provide: Router, useClass: RouterStub},
+      ]
+    });
+  }
+
+  /*Helpers */
+  function createComponent() {
+    fixture = TestBed.createComponent(RoutingHeroDetail);
+    comp = fixture.componentInstance;
+    console.log('111 111 component in createCOmponent', comp)
+    page = new Page();
+
+    // 1st change detection triggers ngOnInit which gets a hero
+    fixture.detectChanges();
+    return fixture.whenStable().then(() => {
+      // 2nd change detection displays the async-fetched hero
+      fixture.detectChanges();
+      page.addPageElements();
+    });
+  }
+
+  class Page {
+    nameDisplay:HTMLElement;
+    nameInput:HTMLInputElement;
+
+    /** Add page elements after hero arrives */
+    addPageElements() {
+      if (comp.hero) {
+        this.nameDisplay = fixture.debugElement.query(By.css('span')).nativeElement;
+        this.nameInput = fixture.debugElement.query(By.css('input')).nativeElement;
+      }
+    }
+  }
+});
+
 //
 //import {
 //  async, ComponentFixture, fakeAsync, inject, TestBed, tick
